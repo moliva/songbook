@@ -110,8 +110,14 @@
 (defn print-mark [mark]
   (concat (apply str (repeat (:position mark) invisible-char)) (:content mark)))
 
+(defn incremental-positions [offset marks]
+  (if (empty? marks)
+    marks
+    (let [mark (first marks)] 
+      (cons (->Mark (- (:position mark) offset) (:content mark)) (incremental-positions (+ (:position mark) (count (:content mark))) (rest marks))))))
+
 (defn print-string [marks]
-  (reduce #(concat %1 (print-mark %2)) "" (rb-tree->ordered-seq marks)))
+  (reduce #(concat %1 (print-mark %2)) "" (incremental-positions 0 (rb-tree->ordered-seq marks))))
 
 (defn editor-page []
   (let [lyric-line (atom "foo")
