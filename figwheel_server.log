@@ -1,0 +1,1539 @@
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.217 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/core.js
+notifying browser that file changed:  /songbook/dev.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.321 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/core.js
+notifying browser that file changed:  /songbook/dev.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.754 seconds.[0m
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.259 seconds.[0m
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.219 seconds.[0m
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[31mCompiling "resources/public/js/app.js" failed.[0m
+java.lang.AssertionError: No ns form found in src/cljs/songbook/views/editor.cljs
+ at cljs.analyzer$parse_ns$fn__2198.invoke (analyzer.clj:2095)
+    cljs.analyzer$parse_ns.invoke (analyzer.clj:2055)
+    cljs.analyzer$parse_ns.invoke (analyzer.clj:2046)
+    cljs.compiler$compile_root$fn__3123.invoke (compiler.clj:1170)
+    clojure.core$map$fn__4245.invoke (core.clj:2559)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$map$fn__4245.invoke (core.clj:2551)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.Cons.next (Cons.java:39)
+    clojure.lang.RT.next (RT.java:598)
+    clojure.core$next.invoke (core.clj:64)
+    clojure.core.protocols/fn (protocols.clj:146)
+    clojure.core.protocols$fn__6057$G__6052__6066.invoke (protocols.clj:19)
+    clojure.core.protocols$seq_reduce.invoke (protocols.clj:31)
+    clojure.core.protocols/fn (protocols.clj:54)
+    clojure.core.protocols$fn__6031$G__6026__6044.invoke (protocols.clj:13)
+    clojure.core$reduce.invoke (core.clj:6289)
+    cljs.js_deps$build_index.invoke (js_deps.clj:126)
+    cljs.js_deps$dependency_order.invoke (js_deps.clj:166)
+    cljs.compiler$compile_root.invoke (compiler.clj:1171)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.153 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.234 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.209 seconds.[0m
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.359 seconds.[0m
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.301 seconds.[0m
+notifying browser that file changed:  /songbook/core.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.373 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+notifying browser that file changed:  /songbook/dev.js
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.374 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/core.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.764 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.288 seconds.[0m
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.467 seconds.[0m
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.28 seconds.[0m
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.22 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.211 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.273 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.418 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+notifying browser that file changed:  /songbook/dev.js
+notifying browser that file changed:  /songbook/core.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.342 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+notifying browser that file changed:  /songbook/dev.js
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/atom-input at line 15 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.368 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/atom-input at line 15 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.268 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/atom-input at line 15 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.178 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.225 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/alert at line 14 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.378 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.246 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.215 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.324 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.308 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.271 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.238 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.417 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.395 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.163 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.23 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.148 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.225 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.181 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.21 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.262 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.311 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.17 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.164 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.369 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.219 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.151 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.151 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.235 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.214 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.312 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.227 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.272 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.212 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.315 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.23 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.165 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.233 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.15 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.172 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.204 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.253 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+sending changed CSS file: resources/public/css/site.css
+sending changed CSS file: resources/public/css/site.css
+sending changed CSS file: resources/public/css/site.css
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.219 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.16 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.161 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.254 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.218 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.338 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.238 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.179 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.272 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.222 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.218 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.271 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/document at line 19 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.252 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/document at line 19 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.356 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.155 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.22 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.269 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.15 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.17 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/get-element at line 19 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.427 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.209 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.19 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.211 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.231 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.164 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.227 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.227 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.256 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.245 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.229 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.244 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.213 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.248 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.166 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.222 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/chord-line at line 19 src/cljs/songbook/views/editor.cljs
+WARNING: Use of undeclared Var songbook.views.editor/insert-value at line 19 src/cljs/songbook/views/editor.cljs
+WARNING: Use of undeclared Var songbook.views.editor/->Mark at line 19 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.476 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/chord-line at line 16 src/cljs/songbook/views/editor.cljs
+WARNING: Use of undeclared Var songbook.views.editor/insert-value at line 16 src/cljs/songbook/views/editor.cljs
+WARNING: Use of undeclared Var songbook.views.editor/->Mark at line 16 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.398 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/rb-tree at line 12 src/cljs/songbook/views/editor.cljs
+WARNING: Use of undeclared Var songbook.views.editor/insert-value at line 18 src/cljs/songbook/views/editor.cljs
+WARNING: Use of undeclared Var songbook.views.editor/->Mark at line 18 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.335 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/views/editor.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/insert-value at line 18 src/cljs/songbook/views/editor.cljs
+WARNING: Use of undeclared Var songbook.views.editor/->Mark at line 18 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.353 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/insert-value at line 17 src/cljs/songbook/views/editor.cljs
+WARNING: Use of undeclared Var songbook.views.editor/->Mark at line 17 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.305 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.model.core/require at line 2 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 10 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 19 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 30 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 42 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/_ at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 45 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 45 src/cljs/songbook/model/core.cljs
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/model/core.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.model.core/require at line 2 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 10 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 19 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 30 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 42 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/_ at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 45 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 45 src/cljs/songbook/model/core.cljs
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/model/core.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.model.core/require at line 2 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 10 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 19 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 30 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 42 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/_ at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 45 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 45 src/cljs/songbook/model/core.cljs
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/model/core.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.model.core/require at line 2 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 10 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 19 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 30 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 42 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/_ at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 45 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 45 src/cljs/songbook/model/core.cljs
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/model/core.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.model.core/require at line 2 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 10 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 19 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 30 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 42 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/_ at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 45 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 45 src/cljs/songbook/model/core.cljs
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/model/core.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.model.core/require at line 2 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 10 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 19 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 30 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 42 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/_ at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 45 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 45 src/cljs/songbook/model/core.cljs
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/model/core.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.model.core/require at line 2 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 10 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 19 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 30 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 42 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/_ at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 45 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 45 src/cljs/songbook/model/core.cljs
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/model/core.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.model.core/require at line 2 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 10 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 12 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 14 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 16 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/x at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 18 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 19 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/c at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/z at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/d at line 20 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 30 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 32 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 33 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/color at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 34 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 42 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/_ at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 44 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 45 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 45 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 46 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 46 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/match at line 62 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/_ at line 64 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 64 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 64 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 64 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/a at line 64 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/y at line 64 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/b at line 64 src/cljs/songbook/model/core.cljs
+WARNING: Bad method signature in protocol implementation, clojure.lang.IPersistentSet does not declare method called cons at line 66 src/cljs/songbook/model/core.cljs
+WARNING: Bad method signature in protocol implementation, clojure.lang.IPersistentSet does not declare method called empty at line 66 src/cljs/songbook/model/core.cljs
+WARNING: Bad method signature in protocol implementation, clojure.lang.IPersistentSet does not declare method called equiv at line 66 src/cljs/songbook/model/core.cljs
+WARNING: Bad method signature in protocol implementation, clojure.lang.IPersistentSet does not declare method called seq at line 66 src/cljs/songbook/model/core.cljs
+WARNING: Bad method signature in protocol implementation, clojure.lang.IPersistentSet does not declare method called get at line 66 src/cljs/songbook/model/core.cljs
+WARNING: Bad method signature in protocol implementation, clojure.lang.IPersistentSet does not declare method called contains at line 66 src/cljs/songbook/model/core.cljs
+WARNING: Bad method signature in protocol implementation, clojure.lang.IFn does not declare method called invoke at line 66 src/cljs/songbook/model/core.cljs
+WARNING: Symbol clojure.lang.IFn is not a protocol at line 66 src/cljs/songbook/model/core.cljs
+WARNING: Symbol clojure.lang.IPersistentSet is not a protocol at line 66 src/cljs/songbook/model/core.cljs
+WARNING: Use of undeclared Var songbook.model.core/print-method at line 82 src/cljs/songbook/model/core.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 1.944 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/model/core.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.327 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/model/core.js
+notifying browser that file changed:  /songbook/dev.js
+notifying browser that file changed:  /songbook/views/editor.js
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.301 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/->Mark at line 18 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.355 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/model->Mark at line 18 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.274 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.155 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.237 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.225 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.233 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.228 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.22 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.166 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.319 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.226 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.253 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.457 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.276 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/->Mark at line 21 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.169 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.223 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: No such namespace: songbook.model.coresong, could not locate songbook/model/coresong.cljs or songbook/model/coresong.cljc at line 21 src/cljs/songbook/views/editor.cljs
+WARNING: Use of undeclared Var songbook.model.coresong/insert-val at line 21 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.349 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: No such namespace: songbook.model.coresong, could not locate songbook/model/coresong.cljs or songbook/model/coresong.cljc at line 21 src/cljs/songbook/views/editor.cljs
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/views/editor.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: No such namespace: songbook.model.coresong, could not locate songbook/model/coresong.cljs or songbook/model/coresong.cljc at line 21 src/cljs/songbook/views/editor.cljs
+WARNING: Use of undeclared Var songbook.model.coresong/insert-val at line 21 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.303 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.149 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.155 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.369 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/model/core.js
+notifying browser that file changed:  /songbook/dev.js
+notifying browser that file changed:  /songbook/views/editor.js
+notifying browser that file changed:  /songbook/core.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.306 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/model/core.js
+notifying browser that file changed:  /songbook/dev.js
+notifying browser that file changed:  /songbook/views/editor.js
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/views/editor.cljs
+ at clojure.core$ex_info.invoke (core.clj:4403)
+    cljs.compiler$compile_file$fn__3100.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3516$fn__3517.invoke (closure.clj:418)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    cljs.closure$eval3503$fn__3504.invoke (closure.clj:432)
+    cljs.closure$eval3452$fn__3453$G__3443__3460.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4245.invoke (core.clj:2557)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:484)
+    clojure.core$seq.invoke (core.clj:133)
+    clojure.core$apply.invoke (core.clj:624)
+    clojure.core$mapcat.doInvoke (core.clj:2586)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17643.invoke (auto_builder.clj:78)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17674.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17640.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17436.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17442.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17445.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17439.invoke (auto.clj:60)
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.243 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+notifying browser that file changed:  /songbook/dev.js
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[31mCompiling "resources/public/js/app.js" failed.[0m
+clojure.lang.ExceptionInfo: failed compiling file:src/cljs/songbook/views/editor.cljs
+ at clojure.core$ex_info.invoke (core.clj:4591)
+    cljs.compiler$compile_file$fn__3038.invoke (compiler.clj:1142)
+    cljs.compiler$compile_file.invoke (compiler.clj:1105)
+    cljs.compiler$compile_root.invoke (compiler.clj:1177)
+    cljs.closure$compile_dir.invoke (closure.clj:378)
+    cljs.closure$eval3437$fn__3438.invoke (closure.clj:418)
+    cljs.closure$eval3390$fn__3391$G__3381__3398.invoke (closure.clj:325)
+    cljs.closure$eval3450$fn__3451.invoke (closure.clj:432)
+    cljs.closure$eval3390$fn__3391$G__3381__3398.invoke (closure.clj:325)
+    clojurescript_build.core.CompilableSourcePaths/fn (core.clj:19)
+    clojure.core$map$fn__4551.invoke (core.clj:2620)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:507)
+    clojure.core/seq (core.clj:135)
+    clojure.core$apply.invoke (core.clj:628)
+    clojure.core$mapcat.doInvoke (core.clj:2658)
+    clojure.lang.RestFn.invoke (RestFn.java:423)
+    clojurescript_build.core.CompilableSourcePaths._compile (core.clj:19)
+    cljs.closure$build.invoke (closure.clj:1446)
+    clojurescript_build.core$build_source_paths_STAR_.invoke (core.clj:153)
+    figwheel_sidecar.auto_builder$default_build_options$fn__17376.invoke (auto_builder.clj:77)
+    figwheel_sidecar.auto_builder$insert_figwheel_connect_script$fn__17407.invoke (auto_builder.clj:164)
+    figwheel_sidecar.auto_builder$warning$fn__17373.invoke (auto_builder.clj:73)
+    clojurescript_build.auto$time_build$fn__17173.invoke (auto.clj:55)
+    clojurescript_build.auto$after$fn__17179.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17179.invoke (auto.clj:64)
+    clojurescript_build.auto$after$fn__17179.invoke (auto.clj:64)
+    clojurescript_build.auto$error$fn__17182.invoke (auto.clj:71)
+    clojurescript_build.auto$before$fn__17176.invoke (auto.clj:60)
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.202 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+notifying browser that file changed:  /songbook/dev.js
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.761 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.463 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/chord-line at line 103 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.508 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.525 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+WARNING: Use of undeclared Var songbook.views.editor/print-string at line 114 src/cljs/songbook/views/editor.cljs
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.555 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.428 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.321 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.305 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.492 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.413 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.392 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.401 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.371 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.407 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.216 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+notifying browser that file changed:  /songbook/dev.js
+notifying browser that file changed:  /songbook/core.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.541 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.711 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.34 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.391 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.542 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.409 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.305 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.271 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.357 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.378 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.497 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.269 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 1.251 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.366 seconds.[0m
+notifying browser that file changed:  /songbook/views/editor.js
