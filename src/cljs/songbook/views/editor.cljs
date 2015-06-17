@@ -90,22 +90,30 @@
 ;(defmethod print-method RedBlackTree [o ^java.io.Writer w]
 ;  (.write w (str "#rbt " (pr-str (.tree o)))))
 
-(defn line-input [value chord-line]
-  (let [editable (atom true)]
-    (fn []
-      [:div
-        [:form [:p.editor-line {:id :editor
-              :content-editable @editable
-              :on-context-menu #(let
-                                  [position (.-startOffset (.getRangeAt (.getSelection js/window) 0))
-                                   chord (js/prompt "Ingrese un acorde")]
-                                  (.preventDefault %)
-                                  (swap! chord-line insert-val (->Mark position chord)))
-              :on-input #(reset! value (-> % .-target .-innerText))}
-                @value
-                ]]])))
-
 (def invisible-char "\u00A0")
+(def default-lyric-line "A sample lyric line \u266B")
+ 
+(def lines (atom [{:key 0, :lyric default-lyric-line, :chord nil}]))
+
+(defn insert-new-line []
+  (swap! lines conj {:key (inc (:key (last @lines))), :lyric default-lyric-line, :chord nil}))
+
+(defn line-input [line]
+  [:div
+   [:form [:p.editor-line {:id :editor
+                           :content-editable true
+                           :on-context-menu #(let
+                                               [position (.-startOffset (.getRangeAt (.getSelection js/window) 0))
+                                                chord (js/prompt "Input a chord for the part")]
+                                               (if (not (= chord ""))
+                                                 (do
+                                                   (.preventDefault %)
+                                                   (swap! lines assoc (:key line) (assoc line :chord (insert-val (:chord line) (->Mark position chord)))))))
+                           :on-input #(swap! lines assoc (:key line) (assoc line :lyric (-> % .-target .-innerText)))
+                           :on-key-press #(let [key (-> % .-key)]
+                                            (if (= "Enter" key)
+                                              (insert-new-line)))}
+           (:lyric line)]]])
 
 (defn print-mark [mark]
   (concat (apply str (repeat (:position mark) invisible-char)) (:content mark)))
@@ -113,18 +121,22 @@
 (defn incremental-positions [offset marks]
   (if (empty? marks)
     marks
-    (let [mark (first marks)] 
+    (let [mark (first marks)]
       (cons (->Mark (- (:position mark) offset) (:content mark)) (incremental-positions (+ (:position mark) (count (:content mark))) (rest marks))))))
 
 (defn print-string [marks]
   (reduce #(concat %1 (print-mark %2)) "" (incremental-positions 0 (rb-tree->ordered-seq marks))))
 
+(defn new-line [line]
+  [:div 
+   [:p.editor-line.chord-line (print-string (:chord line))]
+   [line-input line]])
+
+(defn print-lines []
+  [:div (map new-line @lines)])
+
 (defn editor-page []
-  (let [lyric-line (atom "foo")
-        chord-line (atom nil)]
-    (fn []
-      [:div
-        [:h2 "Songbook editor!"]
-        [:p.editor-line.chord-line (print-string @chord-line)]
-        [line-input lyric-line chord-line]])))
+  [:div
+    [:h2 "Songbook editor!"]
+    [print-lines]])
 
