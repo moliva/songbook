@@ -105,8 +105,10 @@
                 @value
                 ]]])))
 
+(def invisible-char "\u00A0")
+
 (defn print-mark [mark]
-  (concat (apply str (repeat (:position mark) "\u00A0")) (:content mark)))
+  (concat (apply str (repeat (:position mark) invisible-char)) (:content mark)))
 
 (defn print-string [marks]
   (reduce #(concat %1 (print-mark %2)) "" (rb-tree->ordered-seq marks)))
