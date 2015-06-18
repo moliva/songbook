@@ -109,7 +109,8 @@
                (if (and 
                     (= nil %1) 
                     (not= (nth before index-before) (nth after index-after)))
-                index-before 
+                ;index-before 
+                index-after
                 %1)) 
            nil (range length))))
 
@@ -125,13 +126,21 @@
 
 (defn diff-region [before after]
   (cond
+    ; they are equal => no change!
     (= before after)                  {:changed? false}
-    (= (.indexOf after before) 0)     {:changed? true, :type :addition, :start (count before) , :end (count after)}
-    (> (.indexOf after before) 0)     {:changed? true, :type :addition, :start 0, :end (.indexOf after before)}
-    :else (let [length (min (count before) (count after))]
+    ; empty after => the line was deleted!
+    (empty? after)                    {:changed? true, :type :deletion, :start 0, :end (dec (count before))}
+    ; before is included and is the first part of after
+    (= (.indexOf after before) 0)     {:changed? true, :type :addition, :start (count before) , :end (dec (count after))}
+    ; before is included and is the last part of after
+    (> (.indexOf after before) 0)     {:changed? true, :type :addition, :start 0, :end (dec (.indexOf after before))}
+    :else (let [length (min (count before) (count after))
+                start  (find-start-offset before after length)
+                end    (find-end-offset before after length)]
       {:changed? true,
-       :start    (find-start-offset before after length),
-       :end      (find-end-offset before after length),
+       :start    start,
+       ; FIXME - For now we won't allow end to be lower than start, this usually means that a repeated charact was inserted
+       :end      (max start end) ,
        :type     "different!"})))
 
 (defn changed-lyrics [line originalLyrics newLyrics] 
