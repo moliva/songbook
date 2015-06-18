@@ -101,19 +101,6 @@
 (defn update! [line field value]
   (swap! lines assoc (:key line) (assoc line field value)))
 
-(defn find-end-offset [before after length]
-  (let [length-before (count before)
-        length-after  (count after)]
-    (reduce #(let [index-before (- length-before %2 1)
-                   index-after  (- length-after %2 1)]
-               (if (and 
-                    (= nil %1) 
-                    (not= (nth before index-before) (nth after index-after)))
-                ;index-before 
-                index-after
-                %1)) 
-           nil (range length))))
-
 (defn find-start-offset [before after length]
   (let [length-before (count before)
         length-after  (count after)]
@@ -130,24 +117,25 @@
     (= before after)                  {:changed? false}
     ; empty after => the line was deleted!
     (empty? after)                    {:changed? true, :type :deletion, :start 0, :end (dec (count before))}
-    ; before is included and is the first part of after
+    ; before is included and is the first part of after => addition!
     (= (.indexOf after before) 0)     {:changed? true, :type :addition, :start (count before) , :end (dec (count after))}
-    ; before is included and is the last part of after
+    ; before is included and is the last part of after => addition!
     (> (.indexOf after before) 0)     {:changed? true, :type :addition, :start 0, :end (dec (.indexOf after before))}
+    ; after is included and is the first part of before => deletion!
+    (= (.indexOf before after) 0)     {:changed? true, :type :deletion, :start (count after) , :end (dec (count before))}
+    ; before is included and is the last part of after => deletion!
+    (> (.indexOf before after) 0)     {:changed? true, :type :deletion, :start 0, :end (dec (.indexOf before after))}
+    ; else we'll go through a deeper analysis
     :else (let [length (min (count before) (count after))
-                start  (find-start-offset before after length)
-                end    (find-end-offset before after length)]
-      {:changed? true,
-       :start    start,
-       ; FIXME - For now we won't allow end to be lower than start, this usually means that a repeated charact was inserted
-       :end      (max start end) ,
-       :type     "different!"})))
+                offset  (find-start-offset before after length)
+                result (diff-region (.substring before offset) (.substring after offset))]
+      (assoc result :start (+ offset (:start result)) :end (+ offset (:end result))))))
 
 (defn changed-lyrics [line originalLyrics newLyrics] 
   (let [diff      (diff-region originalLyrics newLyrics)
         startDiff (:start diff)
         endDiff   (:end diff)]
-    (js/alert (str diff))))
+    (js/alert (apply str (concat originalLyrics "\n" newLyrics "\n" (str diff))))))
 
 (defn line-input [line]
   [:div
