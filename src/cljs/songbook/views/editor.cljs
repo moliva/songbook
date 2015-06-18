@@ -98,18 +98,64 @@
 (defn insert-new-line []
   (swap! lines conj {:key (inc (:key (last @lines))), :lyric default-lyric-line, :chord nil}))
 
+(defn update! [line field value]
+  (swap! lines assoc (:key line) (assoc line field value)))
+
+(defn find-end-offset [before after length]
+  (let [length-before (count before)
+        length-after  (count after)]
+    (reduce #(let [index-before (- length-before %2 1)
+                   index-after  (- length-after %2 1)]
+               (if (and 
+                    (= nil %1) 
+                    (not= (nth before index-before) (nth after index-after)))
+                index-before 
+                %1)) 
+           nil (range length))))
+
+(defn find-start-offset [before after length]
+  (let [length-before (count before)
+        length-after  (count after)]
+    (reduce #(if (and 
+                  (= nil %1) 
+                  (not= (nth before %2) (nth after %2)))
+              %2 
+              %1) 
+           nil (range length))))
+
+(defn diff-region [before after]
+  (cond
+    (= before after)                  {:changed? false}
+    (= (.indexOf after before) 0)     {:changed? true, :type :addition, :start (count before) , :end (count after)}
+    (> (.indexOf after before) 0)     {:changed? true, :type :addition, :start 0, :end (.indexOf after before)}
+    :else (let [length (min (count before) (count after))]
+      {:changed? true,
+       :start    (find-start-offset before after length),
+       :end      (find-end-offset before after length),
+       :type     "different!"})))
+
+(defn changed-lyrics [line originalLyrics newLyrics] 
+  (let [diff      (diff-region originalLyrics newLyrics)
+        startDiff (:start diff)
+        endDiff   (:end diff)]
+    (js/alert (str diff))))
+
 (defn line-input [line]
   [:div
-   [:form [:p.editor-line {:id :editor
-                           :content-editable true
+   [:form [:p.editor-line {:content-editable true
                            :on-context-menu #(let
                                                [position (.-startOffset (.getRangeAt (.getSelection js/window) 0))
                                                 chord (js/prompt "Input a chord for the part")]
                                                (if (not (= chord ""))
                                                  (do
                                                    (.preventDefault %)
-                                                   (swap! lines assoc (:key line) (assoc line :chord (insert-val (:chord line) (->Mark position chord)))))))
-                           :on-input #(swap! lines assoc (:key line) (assoc line :lyric (-> % .-target .-innerText)))
+                                                   (update! line :chord (insert-val (:chord line) (->Mark position chord))))))
+                           :on-input #(let
+                                        [originalLyrics (:lyric line)
+                                         newLyrics      (-> % .-target .-innerText)]
+                                        (update! line :lyric newLyrics)
+                                        (changed-lyrics line originalLyrics newLyrics))
+                           :on-change #(js/alert "change!")
                            :on-key-press #(let [key (-> % .-key)]
                                             (if (= "Enter" key)
                                               (insert-new-line)))}
