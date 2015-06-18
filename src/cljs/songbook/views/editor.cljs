@@ -125,6 +125,9 @@
     (= (.indexOf before after) 0)     {:changed? true, :type :deletion, :start (count after) , :end (dec (count before))}
     ; before is included and is the last part of after => deletion!
     (> (.indexOf before after) 0)     {:changed? true, :type :deletion, :start 0, :end (dec (.indexOf before after))}
+    ; next rule is due to Chrome not supporting indexOf when there is a space in the end
+    ; http://stackoverflow.com/questions/8572277/javascript-function-indexof-not-working-in-chrome-with-white-space-in-string
+    ; (something to workaround this problem)
     ; else we'll go through a deeper analysis
     :else (let [length (min (count before) (count after))
                 offset  (find-start-offset before after length)
