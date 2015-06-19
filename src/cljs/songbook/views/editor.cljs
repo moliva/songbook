@@ -99,7 +99,7 @@
   (swap! lines conj {:key (inc (:key (last @lines))), :lyric default-lyric-line, :chord nil}))
 
 (defn update! [line field value & kvs]
-  (swap! lines assoc (:key line) (apply assoc (cons line (cons field (cons value kvs))))))
+  (swap! lines assoc (:key line) (apply assoc (reduce #(cons %2 %1) kvs [value field line]))))
 
 (defn find-start-offset [before after length]
   (let [length-before (count before)
