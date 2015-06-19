@@ -176,7 +176,9 @@
                            :on-change #(js/alert "change!")
                            :on-key-press #(let [key (-> % .-key)]
                                             (if (= "Enter" key)
-                                              (insert-new-line)))}
+                                              (do 
+                                                (.preventDefault %)
+                                                (insert-new-line))))}
            (:lyric line)]]])
 
 (defn print-mark [mark]
