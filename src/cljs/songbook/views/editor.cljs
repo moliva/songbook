@@ -159,26 +159,33 @@
            :else (update! line :lyric newLyrics)
       )))
 
+(defn chord-prompt [line] 
+  (let [position (.-startOffset (.getRangeAt (.getSelection js/window) 0))
+        chord (js/prompt "Input a chord for the part")]
+             (if (not (= chord ""))
+               (do
+                 (update! line :chord (insert-val (:chord line) (->Mark position chord)))))))
+
 (defn line-input [line]
   [:div
    [:form [:p.editor-line {:content-editable true
-                           :on-context-menu #(let
-                                               [position (.-startOffset (.getRangeAt (.getSelection js/window) 0))
-                                                chord (js/prompt "Input a chord for the part")]
-                                               (if (not (= chord ""))
-                                                 (do
-                                                   (.preventDefault %)
-                                                   (update! line :chord (insert-val (:chord line) (->Mark position chord))))))
+                           :on-context-menu #(do
+                                               (.preventDefault %)
+                                               (chord-prompt line))
                            :on-input #(let
                                         [originalLyrics (:lyric line)
                                          newLyrics      (-> % .-target .-innerText)]
                                         (changed-lyrics line originalLyrics newLyrics))
-                           :on-change #(js/alert "change!")
                            :on-key-press #(let [key (-> % .-key)]
-                                            (if (= "Enter" key)
-                                              (do 
-                                                (.preventDefault %)
-                                                (insert-new-line))))}
+                                            (cond
+                                              (and (= "Enter" key) (.-altKey %))
+                                                (do
+                                                  (.preventDefault %)
+                                                  (chord-prompt line))
+                                              (= "Enter" key)
+                                                (do
+                                                  (.preventDefault %)
+                                                  (insert-new-line))))}
            (:lyric line)]]])
 
 (defn print-mark [mark]
