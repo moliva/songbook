@@ -126,6 +126,7 @@
     ; before is included and is the last part of after => deletion!
     (> (.indexOf before after) 0)     {:changed? true, :type :deletion, :start 0, :end (dec (.indexOf before after))}
     ; else we'll go through a deeper analysis
+    ; TODO - handle change events (insertions + deletions)
     :else (let [length (min (count before) (count after))
                 offset  (find-start-offset before after length)
                 result (diff-region (.substring before offset) (.substring after offset))]
