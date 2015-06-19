@@ -154,6 +154,8 @@
            ; TODO - move the update! outside of this function (it should just return the right content to update)
            {:changed? false} nil
            {:changed? true, :type :addition, :start start, :end end} (update! line :lyric newLyrics :chord (shift-right (:chord line) start (inc (- end start))))
+           ; TODO - this doesn't solve the issue when a position with a mark is erased -> the mark has to be erased too!
+           {:changed? true, :type :deletion, :start start, :end end} (update! line :lyric newLyrics :chord (shift-right (:chord line) start (- (inc (- end start)))))
            :else (update! line :lyric newLyrics)
       )))
 
