@@ -92,23 +92,23 @@
 
 (def invisible-char "\u00A0")
 (def default-lyric-line "A sample lyric line \u266B")
- 
+
 (def lines (atom [{:key 0, :lyric default-lyric-line, :chord nil}]))
 
 (defn insert-new-line []
   (swap! lines conj {:key (inc (:key (last @lines))), :lyric default-lyric-line, :chord nil}))
 
-(defn update! [line field value]
-  (swap! lines assoc (:key line) (assoc line field value)))
+(defn update! [line field value & kvs]
+  (swap! lines assoc (:key line) (apply assoc (cons line (cons field (cons value kvs))))))
 
 (defn find-start-offset [before after length]
   (let [length-before (count before)
         length-after  (count after)]
-    (reduce #(if (and 
-                  (= nil %1) 
+    (reduce #(if (and
+                  (= nil %1)
                   (not= (nth before %2) (nth after %2)))
-              %2 
-              %1) 
+              %2
+              %1)
            nil (range length))))
 
 (defn diff-region [before after]
@@ -135,11 +135,27 @@
 (defn normalize-string [string]
   (clojure.string/replace string (char 160) " "))
 
-(defn changed-lyrics [line originalLyrics newLyrics] 
+(defn shift-mark [mark start length]
+  (if (>= (:position mark) start)
+    (->Mark (+ length (:position mark)) (:content mark))
+    mark))
+
+(defn shift-right [content start length]
+  (match content
+         nil nil
+         [color a x b] [color (shift-right a start length) (shift-mark x start length) (shift-right b start length)]))
+
+(defn changed-lyrics [line originalLyrics newLyrics]
   (let [diff      (diff-region (normalize-string originalLyrics) (normalize-string newLyrics))
         startDiff (:start diff)
         endDiff   (:end diff)]
-    (js/alert (apply str (concat originalLyrics "\n" newLyrics "\n" (str diff))))))
+    (.log js/console (apply str (concat originalLyrics "\n" newLyrics "\n" (str diff))))
+    (match diff
+           ; TODO - move the update! outside of this function (it should just return the right content to update)
+           {:changed? false} nil
+           {:changed? true, :type :addition, :start start, :end end} (update! line :lyric newLyrics :chord (shift-right (:chord line) start (inc (- end start))))
+           :else (update! line :lyric newLyrics)
+      )))
 
 (defn line-input [line]
   [:div
@@ -154,7 +170,6 @@
                            :on-input #(let
                                         [originalLyrics (:lyric line)
                                          newLyrics      (-> % .-target .-innerText)]
-                                        (update! line :lyric newLyrics)
                                         (changed-lyrics line originalLyrics newLyrics))
                            :on-change #(js/alert "change!")
                            :on-key-press #(let [key (-> % .-key)]
@@ -175,7 +190,7 @@
   (reduce #(concat %1 (print-mark %2)) "" (incremental-positions 0 (rb-tree->ordered-seq marks))))
 
 (defn new-line [line]
-  [:div 
+  [:div
    [:p.editor-line.chord-line (print-string (:chord line))]
    [line-input line]])
 
