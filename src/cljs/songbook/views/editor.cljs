@@ -12,8 +12,15 @@
 (defn insert-new-line []
   (swap! lines conj {:key (inc (:key (last @lines))), :lyric default-lyric-line, :chord nil}))
 
-(defn update! [line field value & kvs]
-  (swap! lines assoc (:key line) (apply assoc (reduce #(cons %2 %1) kvs [value field line]))))
+(defn updatem [map key val & kvs]
+  (let [ret (update map key val)]
+    (if kvs
+      (if (next kvs)
+        (recur ret (first kvs) (second kvs) (nnext kvs)))
+      ret)))
+
+(defn swap-line! [line field value & kvs]
+  (swap! lines assoc (:key line) (apply updatem (concat [line field value] kvs))))
 
 (defn find-start-offset [before after length]
   (let [length-before (count before)
@@ -49,23 +56,22 @@
 (defn normalize-string [string]
   (clojure.string/replace string (char 160) " "))
 
-(defn updated-chords [line originalLyrics newLyrics diff]
-  (let [chord (:chord line)]
-    (match diff
-          {:type :insertion, :start start, :end end} (shift-right (:chord line) start (inc (- end start)))
-          {:type :deletion, :start start, :end end}  (shift-left (:chord line) start (inc (- end start)))
-          :else chord)))
+(defn updated-chords [chord diff]
+  (match diff
+         {:type :insertion, :start start, :end end} (shift-right chord start (inc (- end start)))
+         {:type :deletion, :start start, :end end}  (shift-left chord start (inc (- end start)))
+         :else chord))
 
 (defn changed-lyrics [line originalLyrics newLyrics]
   (let [diff (diff-region (normalize-string originalLyrics) (normalize-string newLyrics))]
     (if (not (empty? diff))
-      (update! line :lyric newLyrics :chord (updated-chords line originalLyrics newLyrics diff)))))
+      (swap-line! line :lyric #(identity newLyrics) :chord #(updated-chords % diff)))))
 
 (defn chord-prompt [line]
   (let [position (.-startOffset (.getRangeAt (.getSelection js/window) 0))
         chord    (js/prompt input-chord-promp-message)]
              (if (and (not= chord nil) (not= chord ""))
-               (update! line :chord (insert-val (:chord line) (->Mark position chord))))))
+               (swap-line! line :chord #(insert-val % (->Mark position chord))))))
 
 (defn line-input [line]
   [:p.editor-line {:content-editable true
