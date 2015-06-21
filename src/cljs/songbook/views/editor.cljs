@@ -16,7 +16,9 @@
   (let [ret (update map key val)]
     (if kvs
       (if (next kvs)
-        (recur ret (first kvs) (second kvs) (nnext kvs)))
+        (recur ret (first kvs) (second kvs) (nnext kvs))
+        (throw (js/Error.
+                 "updatem expects even number of arguments after map/vector, found odd number")))
       ret)))
 
 (defn swap-line! [line field value & kvs]
