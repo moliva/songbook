@@ -1,13 +1,7 @@
 (ns songbook.views.editor
     (:require [reagent.core :as reagent :refer [atom]]
-              [reagent.session :as session]
-              [secretary.core :as secretary :include-macros true]
-              [goog.events :as events]
-              [goog.history.EventType :as EventType]
               [cljs.core.match :refer-macros [match]]
-              [songbook.model.core :refer [->Mark insert-val rb-tree->ordered-seq shift-right shift-left]]
-              [cljsjs.react :as react])
-    (:import goog.History))
+              [songbook.model.core :refer [->Mark insert-val rb-tree->ordered-seq shift-right shift-left]]))
 
 (def input-chord-promp-message  "Input a chord for the part")
 (def invisible-char "\u00A0")
