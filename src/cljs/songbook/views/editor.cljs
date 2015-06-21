@@ -38,9 +38,9 @@
     ; empty after => the line was deleted!
     (empty? after)                    {:changed? true, :type :deletion, :start 0, :end (dec (count before))}
     ; before is included and is the first part of after => addition!
-    (= (.indexOf after before) 0)     {:changed? true, :type :addition, :start (count before) , :end (dec (count after))}
+    (= (.indexOf after before) 0)     {:changed? true, :type :insertion, :start (count before) , :end (dec (count after))}
     ; before is included and is the last part of after => addition!
-    (> (.indexOf after before) 0)     {:changed? true, :type :addition, :start 0, :end (dec (.indexOf after before))}
+    (> (.indexOf after before) 0)     {:changed? true, :type :insertion, :start 0, :end (dec (.indexOf after before))}
     ; after is included and is the first part of before => deletion!
     (= (.indexOf before after) 0)     {:changed? true, :type :deletion, :start (count after) , :end (dec (count before))}
     ; before is included and is the last part of after => deletion!
@@ -55,47 +55,45 @@
 (defn normalize-string [string]
   (clojure.string/replace string (char 160) " "))
 
-(defn changed-lyrics [line originalLyrics newLyrics]
-  (let [diff      (diff-region (normalize-string originalLyrics) (normalize-string newLyrics))
-        startDiff (:start diff)
-        endDiff   (:end diff)]
-    (.log js/console (apply str (concat originalLyrics "\n" newLyrics "\n" (str diff))))
+(defn updated-chords [line originalLyrics newLyrics diff]
+  (let [chord (:chord line)]
     (match diff
-           ; TODO - move the update! outside of this function (it should just return the right content to update)
-           {:changed? false} nil
-           {:changed? true, :type :addition, :start start, :end end} (update! line :lyric newLyrics :chord (shift-right (:chord line) start (inc (- end start))))
-           ; TODO - this doesn't solve the issue when a position with a mark is erased -> the mark has to be erased too!
-           {:changed? true, :type :deletion, :start start, :end end} (update! line :lyric newLyrics :chord (shift-right (:chord line) start (- (inc (- end start)))))
-           :else (update! line :lyric newLyrics))))
+          {:changed? true, :type :insertion, :start start, :end end} (shift-right (:chord line) start (inc (- end start)))
+          ; TODO - this doesn't solve the issue when a position with a mark is erased -> the mark has to be erased too!
+          {:changed? true, :type :deletion, :start start, :end end} (shift-right (:chord line) start (- (inc (- end start))))
+          :else chord)))
+
+(defn changed-lyrics [line originalLyrics newLyrics]
+  (let [diff (diff-region (normalize-string originalLyrics) (normalize-string newLyrics))]
+    (if (:changed? diff)
+      (update! line :lyric newLyrics :chord (updated-chords line originalLyrics newLyrics diff)))))
 
 (defn chord-prompt [line]
   (let [position (.-startOffset (.getRangeAt (.getSelection js/window) 0))
         chord    (js/prompt input-chord-promp-message)]
-             (if (not (= chord ""))
-               (do
-                 (update! line :chord (insert-val (:chord line) (->Mark position chord)))))))
+             (if (and (not= chord nil) (not= chord ""))
+               (update! line :chord (insert-val (:chord line) (->Mark position chord))))))
 
 (defn line-input [line]
-  [:div
-   [:form [:p.editor-line {:content-editable true
-                           :on-context-menu #(do
-                                               (.preventDefault %)
-                                               (chord-prompt line))
-                           :on-input #(let
-                                        [originalLyrics (:lyric line)
-                                         newLyrics      (-> % .-target .-innerText)]
-                                        (changed-lyrics line originalLyrics newLyrics))
-                           :on-key-press #(let [key (-> % .-key)]
-                                            (cond
-                                              (and (= "Enter" key) (.-altKey %))
-                                                (do
-                                                  (.preventDefault %)
-                                                  (chord-prompt line))
-                                              (= "Enter" key)
-                                                (do
-                                                  (.preventDefault %)
-                                                  (insert-new-line))))}
-           (:lyric line)]]])
+  [:p.editor-line {:content-editable true
+                   :on-context-menu #(do
+                                       (.preventDefault %)
+                                       (chord-prompt line))
+                   :on-input #(let
+                                [originalLyrics (:lyric line)
+                                 newLyrics      (-> % .-target .-innerText)]
+                                 (changed-lyrics line originalLyrics newLyrics))
+                   :on-key-press #(let [key (-> % .-key)]
+                                          (cond
+                                            (and (= "Enter" key) (.-altKey %))
+                                            (do
+                                              (.preventDefault %)
+                                              (chord-prompt line))
+                                            (= "Enter" key)
+                                            (do
+                                              (.preventDefault %)
+                                              (insert-new-line))))}
+         (:lyric line)])
 
 (defn print-mark [mark]
   (concat (apply str (repeat (:position mark) invisible-char)) (:content mark)))
@@ -103,8 +101,10 @@
 (defn incremental-positions [offset marks]
   (if (empty? marks)
     marks
-    (let [mark (first marks)]
-      (cons (->Mark (- (:position mark) offset) (:content mark)) (incremental-positions (+ (:position mark) (count (:content mark))) (rest marks))))))
+    (let [mark     (first marks)
+          position (:position mark)
+          content  (:content mark)]
+      (cons (->Mark (- position offset) content) (incremental-positions (+ position (count content)) (rest marks))))))
 
 (defn print-string [marks]
   (reduce #(concat %1 (print-mark %2)) "" (incremental-positions 0 (rb-tree->ordered-seq marks))))
