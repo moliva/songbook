@@ -1,7 +1,7 @@
 (ns songbook.model.core
   #?(:cljs (:require [cljs.core.match :refer-macros [match]])
      :clj  (:require [clojure.core.match :refer [match]])))
-              
+
 (defrecord Mark [position content])
 
 (defn balance
@@ -92,4 +92,9 @@
   (match content
          nil nil
          [color a x b] [color (shift-right a start length) (shift-mark x start length) (shift-right b start length)]))
+
+(defn shift-left [tree start length]
+  (let [end     (dec (+ start length))
+        newTree (reduce insert-val nil (filter #(let [position (:position %)] (or (< position start) (> position end))) (rb-tree->seq tree)))]
+    (shift-right newTree start (- length))))
 

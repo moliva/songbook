@@ -5,7 +5,7 @@
               [goog.events :as events]
               [goog.history.EventType :as EventType]
               [cljs.core.match :refer-macros [match]]
-              [songbook.model.core :refer [->Mark insert-val rb-tree->ordered-seq shift-right]]
+              [songbook.model.core :refer [->Mark insert-val rb-tree->ordered-seq shift-right shift-left]]
               [cljsjs.react :as react])
     (:import goog.History))
 
@@ -34,17 +34,17 @@
 (defn diff-region [before after]
   (cond
     ; they are equal => no change!
-    (= before after)                  {:changed? false}
+    (= before after)                  {}
     ; empty after => the line was deleted!
-    (empty? after)                    {:changed? true, :type :deletion, :start 0, :end (dec (count before))}
+    (empty? after)                    {:type :deletion, :start 0, :end (dec (count before))}
     ; before is included and is the first part of after => addition!
-    (= (.indexOf after before) 0)     {:changed? true, :type :insertion, :start (count before) , :end (dec (count after))}
+    (= (.indexOf after before) 0)     {:type :insertion, :start (count before) , :end (dec (count after))}
     ; before is included and is the last part of after => addition!
-    (> (.indexOf after before) 0)     {:changed? true, :type :insertion, :start 0, :end (dec (.indexOf after before))}
+    (> (.indexOf after before) 0)     {:type :insertion, :start 0, :end (dec (.indexOf after before))}
     ; after is included and is the first part of before => deletion!
-    (= (.indexOf before after) 0)     {:changed? true, :type :deletion, :start (count after) , :end (dec (count before))}
+    (= (.indexOf before after) 0)     {:type :deletion, :start (count after) , :end (dec (count before))}
     ; before is included and is the last part of after => deletion!
-    (> (.indexOf before after) 0)     {:changed? true, :type :deletion, :start 0, :end (dec (.indexOf before after))}
+    (> (.indexOf before after) 0)     {:type :deletion, :start 0, :end (dec (.indexOf before after))}
     ; else we'll go through a deeper analysis
     ; TODO - handle change events (insertions + deletions)
     :else (let [length (min (count before) (count after))
@@ -58,14 +58,14 @@
 (defn updated-chords [line originalLyrics newLyrics diff]
   (let [chord (:chord line)]
     (match diff
-          {:changed? true, :type :insertion, :start start, :end end} (shift-right (:chord line) start (inc (- end start)))
+          {:type :insertion, :start start, :end end} (shift-right (:chord line) start (inc (- end start)))
           ; TODO - this doesn't solve the issue when a position with a mark is erased -> the mark has to be erased too!
-          {:changed? true, :type :deletion, :start start, :end end} (shift-right (:chord line) start (- (inc (- end start))))
+          {:type :deletion, :start start, :end end} (shift-left (:chord line) start (inc (- end start)))
           :else chord)))
 
 (defn changed-lyrics [line originalLyrics newLyrics]
   (let [diff (diff-region (normalize-string originalLyrics) (normalize-string newLyrics))]
-    (if (:changed? diff)
+    (if (not (empty? diff))
       (update! line :lyric newLyrics :chord (updated-chords line originalLyrics newLyrics diff)))))
 
 (defn chord-prompt [line]
