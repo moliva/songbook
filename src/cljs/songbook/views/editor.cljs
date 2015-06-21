@@ -1,6 +1,7 @@
 (ns songbook.views.editor
     (:require [reagent.core :as reagent :refer [atom]]
               [cljs.core.match :refer-macros [match]]
+              [songbook.utils.core :refer [normalize-string updatem]]
               [songbook.model.core :refer [->Mark insert-val rb-tree->ordered-seq shift-right shift-left]]))
 
 (def input-chord-promp-message  "Input a chord for the part")
@@ -11,15 +12,6 @@
 
 (defn insert-new-line []
   (swap! lines conj {:key (inc (:key (last @lines))), :lyric default-lyric-line, :chord nil}))
-
-(defn updatem [map key val & kvs]
-  (let [ret (update map key val)]
-    (if kvs
-      (if (next kvs)
-        (recur ret (first kvs) (second kvs) (nnext kvs))
-        (throw (js/Error.
-                 "updatem expects even number of arguments after map/vector, found odd number")))
-      ret)))
 
 (defn swap-line! [line field value & kvs]
   (swap! lines assoc (:key line) (apply updatem (concat [line field value] kvs))))
@@ -52,9 +44,6 @@
                 offset (find-start-offset before after length)
                 result (diff-region (.substring before offset) (.substring after offset))]
       (updatem result :start #(+ offset %) :end #(+ offset %)))))
-
-(defn normalize-string [string]
-  (clojure.string/replace string (char 160) " "))
 
 (defn updated-chords [chord diff]
   (match diff
