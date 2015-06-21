@@ -59,8 +59,7 @@
   (let [chord (:chord line)]
     (match diff
           {:type :insertion, :start start, :end end} (shift-right (:chord line) start (inc (- end start)))
-          ; TODO - this doesn't solve the issue when a position with a mark is erased -> the mark has to be erased too!
-          {:type :deletion, :start start, :end end} (shift-left (:chord line) start (inc (- end start)))
+          {:type :deletion, :start start, :end end}  (shift-left (:chord line) start (inc (- end start)))
           :else chord)))
 
 (defn changed-lyrics [line originalLyrics newLyrics]

@@ -64,37 +64,19 @@
          nil nil
          [_ a y b] (concat (rb-tree->ordered-seq a) [y] (rb-tree->ordered-seq b))))
 
-;(deftype RedBlackTree [tree]
-;  clojure.lang.IPersistentSet
-;  (cons [self v] (RedBlackTree. (insert-val tree v)))
-;  (empty [self] (RedBlackTree. nil))
-;  (equiv [self o] (if (instance? RedBlackTree o)
-;                    (= tree (.tree o))
-;                    false))
-;  (seq [this] (if tree (rb-tree->seq tree)))
-;  (get [this n] (find-val tree n))
-;  (contains [this n] (boolean (get this n)))
-;  ;; (disjoin [this n] ...) ;; Omitted due to complexity
-;  clojure.lang.IFn
-;  (invoke [this n] (get this n))
-;  Object
-;  (toString [this] (pr-str this)))
-;
-;(defmethod print-method RedBlackTree [o ^java.io.Writer w]
-;  (.write w (str "#rbt " (pr-str (.tree o)))))
-
 (defn shift-mark [mark start length]
   (if (>= (:position mark) start)
-    (->Mark (+ length (:position mark)) (:content mark))
+    (update mark :position #(+ length %))
     mark))
 
 (defn shift-right [content start length]
   (match content
-         nil nil
-         [color a x b] [color (shift-right a start length) (shift-mark x start length) (shift-right b start length)]))
+    nil nil
+    [color a x b] [color (shift-right a start length) (shift-mark x start length) (shift-right b start length)]))
 
 (defn shift-left [tree start length]
   (let [end     (dec (+ start length))
+        ; TODO - optimize by implementing actual deletion of nodes instead of recreating the whole tree - moliva - 21/6/2015
         newTree (reduce insert-val nil (filter #(let [position (:position %)] (or (< position start) (> position end))) (rb-tree->seq tree)))]
     (shift-right newTree start (- length))))
 
