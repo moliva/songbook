@@ -23,14 +23,12 @@
   (swap! lines assoc (:key line) (apply updatem (concat [line field value] kvs))))
 
 (defn find-start-offset [before after length]
-  (let [length-before (count before)
-        length-after  (count after)]
-    (reduce #(if (and
-                  (= nil %1)
-                  (not= (nth before %2) (nth after %2)))
-              %2
-              %1)
-           nil (range length))))
+  (reduce #(if (and
+                 (nil? %1)
+                 (not= (nth before %2) (nth after %2)))
+             %2
+             %1)
+          nil (range length)))
 
 (defn diff-region [before after]
   (cond
@@ -49,9 +47,9 @@
     ; else we'll go through a deeper analysis
     ; TODO - handle change events (insertions + deletions)
     :else (let [length (min (count before) (count after))
-                offset  (find-start-offset before after length)
+                offset (find-start-offset before after length)
                 result (diff-region (.substring before offset) (.substring after offset))]
-      (assoc result :start (+ offset (:start result)) :end (+ offset (:end result))))))
+      (updatem result :start #(+ offset %) :end #(+ offset %)))))
 
 (defn normalize-string [string]
   (clojure.string/replace string (char 160) " "))
