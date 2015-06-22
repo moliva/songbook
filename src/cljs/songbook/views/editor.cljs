@@ -2,7 +2,7 @@
     (:require [reagent.core :as reagent :refer [atom]]
               [cljs.core.match :refer-macros [match]]
               [songbook.utils.core :refer [normalize-string updatem index-of]]
-              [songbook.model.core :refer [->Mark insert-val rb-tree->ordered-seq shift-right shift-left]]))
+              [songbook.model.core :as model :refer [->Mark insert-val rb-tree->ordered-seq shift-right shift-left]]))
 
 (def input-chord-promp-message  "Input a chord for the part")
 (def invisible-char "\u00A0")
@@ -80,10 +80,14 @@
 
 (defn chord-prompt [line]
   (let [position      (.-startOffset (.getRangeAt (.getSelection js/window) 0))
-        current-chord (:content (mark-at position (:chord line)))
+        current-mark  (mark-at position (:chord line))
+        current-chord (:content current-mark)
         chord         (js/prompt input-chord-promp-message (if (nil? current-chord) "" current-chord))]
-             (if (and (not= chord nil) (not= chord ""))
-               (swap-line! line :chord #(insert-val % (->Mark position chord))))))
+             (cond
+               ; if the return of the prompt is nil -> cancel!
+               (nil? chord) nil
+               (and (not (nil? current-mark)) (= chord "")) (swap-line! line :chord #(model/delete-val % current-mark))
+               (not= chord "") (swap-line! line :chord #(insert-val % (->Mark position chord))))))
 
 (defn line-input [line]
   [:p.editor-line {:content-editable true

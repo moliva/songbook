@@ -76,6 +76,9 @@
     nil nil
     [color a x b] [color (shift-right a start length) (shift-mark x start length) (shift-right b start length)]))
 
+(defn delete-val [tree val]
+  (reduce insert-val nil (filter #(not= % val) (rb-tree->seq tree))))
+
 (defn shift-left [tree start length]
   (let [end     (dec (+ start length))
         ; TODO - optimize by implementing actual deletion of nodes instead of recreating the whole tree - moliva - 21/6/2015
