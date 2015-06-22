@@ -105,8 +105,16 @@
 (defn print-lines []
   [:div (map new-line @lines)])
 
+(defn print-controls []
+  [:p
+    "Edit line with lyrics" [:br]
+    [:b "Enter"] "- For adding new lines" [:br]
+    [:b "Alt+Enter | Right click"]  " - For adding a chord at some point" [:br]
+    [:b "Tab | Shift+Tab"] " - Focus next/previous line"])
+
 (defn editor-page []
   [:div
     [:h2 "Songbook editor!"]
+    [print-controls]
     [print-lines]])
 
