@@ -13,19 +13,19 @@
 
 (defn home-page []
   [:div [:h2 "Welcome to songbook"]
-   [:div [:a {:href "#!/about"} "go to about page"]]
-   [:div [:a {:href "#!/editor"} "go to editor page"]]])
+   [:div [:a {:href "#/about"} "go to about page"]]
+   [:div [:a {:href "#/editor"} "go to editor page"]]])
 
 (defn about-page []
   [:div [:h2 "About songbook"]
-   [:div [:a {:href "#!/"} "go to the home page"]]])
+   [:div [:a {:href "#/"} "go to the home page"]]])
 
 (defn current-page []
   [:div [(session/get :current-page)]])
 
 ;; -------------------------
 ;; Routes
-(secretary/set-config! :prefix "#!")
+(secretary/set-config! :prefix "#")
 
 (secretary/defroute "/" []
   (session/put! :current-page #'home-page))
