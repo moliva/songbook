@@ -1,6 +1,8 @@
 (ns songbook.model.core
-  #?(:cljs (:require [cljs.core.match :refer-macros [match]])
-     :clj  (:require [clojure.core.match :refer [match]])))
+  (:require
+    #?(:cljs [cljs.core.match :refer-macros [match]]
+       :clj  [clojure.core.match :refer [match]])
+    [songbook.utils.core :refer [between]]))
 
 (defrecord Mark [position content])
 
@@ -77,6 +79,6 @@
 (defn shift-left [tree start length]
   (let [end     (dec (+ start length))
         ; TODO - optimize by implementing actual deletion of nodes instead of recreating the whole tree - moliva - 21/6/2015
-        newTree (reduce insert-val nil (filter #(let [position (:position %)] (or (< position start) (> position end))) (rb-tree->seq tree)))]
-    (shift-right newTree start (- length))))
+        new-tree (reduce insert-val nil (filter #(not (between start end (:position %))) tree))]
+    (shift-right new-tree start (- length))))
 

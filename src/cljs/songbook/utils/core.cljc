@@ -14,3 +14,6 @@
                                "updatem expects even number of arguments after map/vector, found odd number"))))
       ret)))
 
+(defn between [start end number]
+  (and (>= number start) (<= number end)))
+

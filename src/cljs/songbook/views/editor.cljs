@@ -8,10 +8,10 @@
 (def invisible-char "\u00A0")
 (def default-lyric-line "A sample lyric line \u266B")
 
-(def lines (atom [{:key 0, :lyric default-lyric-line, :chord nil}]))
+(def lines (atom [{:key 0 :lyric default-lyric-line :chord nil}]))
 
 (defn insert-new-line []
-  (swap! lines conj {:key (inc (:key (last @lines))), :lyric default-lyric-line, :chord nil}))
+  (swap! lines conj {:key (inc (:key (last @lines))) :lyric default-lyric-line :chord nil}))
 
 (defn swap-line! [line field value & kvs]
   (swap! lines assoc (:key line) (apply updatem (concat [line field value] kvs))))
@@ -29,15 +29,15 @@
     ; they are equal => no change!
     (= before after)                  {}
     ; empty after => the line was deleted!
-    (empty? after)                    {:type :deletion, :start 0, :end (dec (count before))}
+    (empty? after)                    {:type :deletion :start 0 :end (dec (count before))}
     ; before is included and is the first part of after => addition!
-    (= (.indexOf after before) 0)     {:type :insertion, :start (count before) , :end (dec (count after))}
+    (= (.indexOf after before) 0)     {:type :insertion :start (count before) :end (dec (count after))}
     ; before is included and is the last part of after => addition!
-    (> (.indexOf after before) 0)     {:type :insertion, :start 0, :end (dec (.indexOf after before))}
+    (> (.indexOf after before) 0)     {:type :insertion :start 0 :end (dec (.indexOf after before))}
     ; after is included and is the first part of before => deletion!
-    (= (.indexOf before after) 0)     {:type :deletion, :start (count after) , :end (dec (count before))}
+    (= (.indexOf before after) 0)     {:type :deletion :start (count after) :end (dec (count before))}
     ; before is included and is the last part of after => deletion!
-    (> (.indexOf before after) 0)     {:type :deletion, :start 0, :end (dec (.indexOf before after))}
+    (> (.indexOf before after) 0)     {:type :deletion :start 0 :end (dec (.indexOf before after))}
     ; else we'll go through a deeper analysis
     ; TODO - handle change events (insertions + deletions)
     :else (let [length (min (count before) (count after))
@@ -47,8 +47,8 @@
 
 (defn updated-chords [chord diff]
   (match diff
-         {:type :insertion, :start start, :end end} (shift-right chord start (inc (- end start)))
-         {:type :deletion, :start start, :end end}  (shift-left chord start (inc (- end start)))
+         {:type :insertion :start start :end end} (shift-right chord start (inc (- end start)))
+         {:type :deletion :start start :end end}  (shift-left chord start (inc (- end start)))
          :else chord))
 
 (defn changed-lyrics [line originalLyrics newLyrics]
@@ -92,7 +92,7 @@
     (let [mark     (first marks)
           position (:position mark)
           content  (:content mark)]
-      (cons (->Mark (- position offset) content) (incremental-positions (+ position (count content)) (rest marks))))))
+      (cons (update mark :position #(- % offset)) (incremental-positions (+ position (count content)) (rest marks))))))
 
 (defn print-string [marks]
   (reduce #(concat %1 (print-mark %2)) "" (incremental-positions 0 (rb-tree->ordered-seq marks))))
