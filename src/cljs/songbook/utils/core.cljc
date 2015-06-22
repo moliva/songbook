@@ -3,6 +3,9 @@
 (defn normalize-string [string]
   (clojure.string/replace string (char 160) " "))
 
+(defn index-of [vector element]
+  (.indexOf (to-array vector) element))
+
 (defn updatem [map key val & kvs]
   (let [ret (update map key val)]
     (if kvs

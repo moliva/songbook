@@ -1,20 +1,39 @@
 (ns songbook.views.editor
     (:require [reagent.core :as reagent :refer [atom]]
               [cljs.core.match :refer-macros [match]]
-              [songbook.utils.core :refer [normalize-string updatem]]
+              [songbook.utils.core :refer [normalize-string updatem index-of]]
               [songbook.model.core :refer [->Mark insert-val rb-tree->ordered-seq shift-right shift-left]]))
 
 (def input-chord-promp-message  "Input a chord for the part")
 (def invisible-char "\u00A0")
 (def default-lyric-line "A sample lyric line \u266B")
+(def line-prototype {:id -1 :lyric default-lyric-line :chord nil})
 
-(def lines (atom [{:key 0 :lyric default-lyric-line :chord nil}]))
+(def id-gen (atom -1))
 
-(defn insert-new-line []
-  (swap! lines conj {:key (inc (:key (last @lines))) :lyric default-lyric-line :chord nil}))
+(defn next-id []
+  (swap! id-gen inc)
+  @id-gen)
+
+(defn new-line []
+  (assoc line-prototype :id (next-id)))
+
+(def lines (atom [(new-line)]))
+
+(defn add-at [vector val pos]
+  (let [split (split-at pos vector)]
+    (vec (concat (split 0) [val] (split 1)))))
+
+(defn insert-new-line-before [line]
+  (let [position (index-of @lines line)]
+    (swap! lines add-at (new-line) position)))
+
+(defn insert-new-line [line]
+  (let [position (inc (index-of @lines line))]
+    (swap! lines add-at (new-line) position)))
 
 (defn swap-line! [line field value & kvs]
-  (swap! lines assoc (:key line) (apply updatem (concat [line field value] kvs))))
+  (swap! lines assoc (index-of @lines line) (apply updatem (concat [line field value] kvs))))
 
 (defn find-start-offset [before after length]
   (reduce #(if (and
@@ -74,13 +93,17 @@
                    :on-key-press #(let [key (-> % .-key)]
                                           (cond
                                             (and (= "Enter" key) (.-altKey %))
-                                            (do
-                                              (.preventDefault %)
-                                              (chord-prompt line))
+                                              (do
+                                                (.preventDefault %)
+                                                (chord-prompt line))
+                                            (and (= "Enter" key) (.-shiftKey %))
+                                              (do
+                                                (.preventDefault %)
+                                                (insert-new-line-before line))
                                             (= "Enter" key)
-                                            (do
-                                              (.preventDefault %)
-                                              (insert-new-line))))}
+                                              (do
+                                                (.preventDefault %)
+                                                (insert-new-line line))))}
          (:lyric line)])
 
 (defn print-mark [mark]
@@ -94,21 +117,21 @@
           content  (:content mark)]
       (cons (update mark :position #(- % offset)) (incremental-positions (+ position (count content)) (rest marks))))))
 
-(defn print-string [marks]
+(defn print-marks [marks]
   (reduce #(concat %1 (print-mark %2)) "" (incremental-positions 0 (rb-tree->ordered-seq marks))))
 
-(defn new-line [line]
+(defn print-line [line]
   [:div
-   [:p.editor-line.chord-line (print-string (:chord line))]
+   [:p.editor-line.chord-line (print-marks (:chord line))]
    [line-input line]])
 
 (defn print-lines []
-  [:div (map new-line @lines)])
+  [:div (map print-line @lines)])
 
 (defn print-controls []
   [:p
-    "Edit line with lyrics" [:br]
-    [:b "Enter"] " - For adding new lines" [:br]
+    "Edit lines with lyrics" [:br]
+    [:b "Enter | Shift+Enter"] " - For adding a new line after/before the current one" [:br]
     [:b "Alt+Enter | Right click"]  " - For adding a chord in the caret position" [:br]
     [:b "Tab | Shift+Tab"] " - Focus next/previous line"])
 
