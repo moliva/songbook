@@ -79,6 +79,6 @@
 (defn shift-left [tree start length]
   (let [end     (dec (+ start length))
         ; TODO - optimize by implementing actual deletion of nodes instead of recreating the whole tree - moliva - 21/6/2015
-        new-tree (reduce insert-val nil (filter #(not (between start end (:position %))) tree))]
+        new-tree (reduce insert-val nil (filter #(not (between start end (:position %))) (rb-tree->seq tree)))]
     (shift-right new-tree start (- length))))
 
