@@ -6,7 +6,8 @@
 
 (def input-chord-promp-message  "Input a chord for the part")
 (def invisible-char "\u00A0")
-(def default-lyric-line "A sample lyric line \u266B")
+(def first-lyric-line "A sample lyric line \u266B")
+(def default-lyric-line "")
 (def line-prototype {:id -1 :lyric default-lyric-line :chord nil})
 
 (def id-gen (atom -1))
@@ -18,7 +19,10 @@
 (defn new-line []
   (assoc line-prototype :id (next-id)))
 
-(def lines (atom [(new-line)]))
+(def lines (atom [(assoc (new-line) :lyric first-lyric-line)]))
+
+(defn editor-id [line]
+  (str "editor-line-" (:id line)))
 
 (defn add-at [vector val pos]
   (let [split (split-at pos vector)]
@@ -29,8 +33,10 @@
     (swap! lines add-at (new-line) position)))
 
 (defn insert-new-line [line]
-  (let [position (inc (index-of @lines line))]
-    (swap! lines add-at (new-line) position)))
+  (let [position (inc (index-of @lines line))
+        nl (new-line)]
+    (swap! lines add-at nl position)
+    (.focus (.getElementById js/document (editor-id nl)))))
 
 (defn swap-line! [line field value & kvs]
   (swap! lines assoc (index-of @lines line) (apply updatem (concat [line field value] kvs))))
@@ -91,6 +97,7 @@
 
 (defn line-input [line]
   [:p.editor-line {:content-editable true
+                   :id (editor-id line)
                    :on-context-menu #(do
                                        (.preventDefault %)
                                        (chord-prompt line))
@@ -128,13 +135,18 @@
 (defn print-marks [marks]
   (reduce #(concat %1 (print-mark %2)) "" (incremental-positions 0 (rb-tree->ordered-seq marks))))
 
-(defn print-line [line]
+(def initial-focus-wrapper 
+  (with-meta identity
+    {:component-did-mount #(.focus (reagent/dom-node %))}))
+
+(defn print-line [line should-focus]
   [:div
-   [:p.editor-line.chord-line (print-marks (:chord line))]
-   [line-input line]])
+   [:p.chord-line (print-marks (:chord line))]
+   (if should-focus [initial-focus-wrapper [line-input line]] [line-input line])])
 
 (defn print-lines []
-  [:div (map print-line @lines)])
+  (let [last-inserted-line (reduce #(if (> (:id %1) (:id %2)) %1 %2) nil @lines)]
+    [:div (map #(print-line % (= last-inserted-line %)) @lines)]))
 
 (defn print-controls []
   [:p
