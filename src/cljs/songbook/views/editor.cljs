@@ -109,7 +109,7 @@
   [:p
     "Edit line with lyrics" [:br]
     [:b "Enter"] " - For adding new lines" [:br]
-    [:b "Alt+Enter | Right click"]  " - For adding a chord at some point" [:br]
+    [:b "Alt+Enter | Right click"]  " - For adding a chord at a particular in the caret position" [:br]
     [:b "Tab | Shift+Tab"] " - Focus next/previous line"])
 
 (defn editor-page []
