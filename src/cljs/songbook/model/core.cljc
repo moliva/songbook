@@ -35,7 +35,7 @@
       [color a y b] (cond
         (< (:position x) (:position y)) (balance [color (ins a) y b])
         (> (:position x) (:position y)) (balance [color a y (ins b)])
-        :else tree)))
+        :else [color a x b])))
       [_ a y b] (ins tree)]
     [:black a y b]))
 
@@ -45,9 +45,9 @@
   (match tree
          nil       nil
          [_ a y b] (cond
-                    (< (:position x) (:position y)) (find-val a x)
-                    (> (:position x) (:position y)) (find-val b x)
-                    :else x)))
+                    (< x (:position y)) (find-val a x)
+                    (> x (:position y)) (find-val b x)
+                    :else y)))
 
 (defn- rb-tree->tree-seq
   "Return a seq of all nodes in an red-black tree."

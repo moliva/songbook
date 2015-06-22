@@ -75,9 +75,13 @@
     (if (not (empty? diff))
       (swap-line! line :lyric #(identity newLyrics) :chord #(updated-chords % diff)))))
 
+(defn mark-at [position marks]
+  (songbook.model.core/find-val marks position))
+
 (defn chord-prompt [line]
-  (let [position (.-startOffset (.getRangeAt (.getSelection js/window) 0))
-        chord    (js/prompt input-chord-promp-message)]
+  (let [position      (.-startOffset (.getRangeAt (.getSelection js/window) 0))
+        current-chord (:content (mark-at position (:chord line)))
+        chord         (js/prompt input-chord-promp-message (if (nil? current-chord) "" current-chord))]
              (if (and (not= chord nil) (not= chord ""))
                (swap-line! line :chord #(insert-val % (->Mark position chord))))))
 
