@@ -34,10 +34,18 @@ a:hover {
 }
 
 .chord-line {
+  font-family: 'Courier New';
+  padding: 0 9px;
   color: red;
+  line-height: 0;
 }
 
 .editor-line {
   font-family: 'Courier New';
+  padding: 0 9px;
+  border-color: #ddd;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
 }
 
