@@ -27,7 +27,11 @@
 
   :plugins [[lein-ring "0.9.1"]
             [lein-environ "1.0.0"]
-            [lein-asset-minifier "0.2.2"]]
+            [lein-asset-minifier "0.2.2"]
+            [lein-bower "0.5.1"]]
+
+  :bower-dependencies [[bootstrap "3.3.5"]
+                       [font-awesome "4.3.0"]]
 
   :ring {:handler songbook.handler/app
          :uberwar-name "songbook.war"}
