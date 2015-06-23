@@ -14,7 +14,10 @@
      [:meta {:charset "utf-8"}]
      [:meta {:name "viewport"
              :content "width=device-width, initial-scale=1"}]
-     (include-css (if (env :dev) "css/site.css" "css/site.min.css"))]
+     (include-css (if (env :dev) "css/site.css" "css/site.min.css"))
+     (include-css "facss/fa.css")
+     (include-css "bootstrapcss/bootstrap.css")]
+     (include-js "js/vendor.min.js") 
     [:body
      [:div#app]
      (include-js "js/app.js")]]))
