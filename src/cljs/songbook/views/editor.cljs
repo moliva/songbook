@@ -1,13 +1,16 @@
 (ns songbook.views.editor
     (:require [reagent.core :as reagent :refer [atom]]
               [cljs.core.match :refer-macros [match]]
+              [clojure.string :as str]
               [songbook.utils.core :refer [normalize-string updatem index-of]]
+              [cemerick.url :as cem]
               [songbook.model.core :as model :refer [->Mark insert-val rb-tree->ordered-seq shift-right shift-left]]))
 
 (def input-chord-promp-message  "Input a chord for the part")
 (def invisible-char "\u00A0")
 (def first-lyric-line "A sample lyric line \u266B")
 (def default-lyric-line "")
+(def default-song-name  "song.txt")
 (def line-prototype {:id -1 :lyric default-lyric-line :chord nil})
 
 (def id-gen (atom -1))
@@ -148,16 +151,24 @@
 (defn print-mark [mark]
   (concat (apply str (repeat (:position mark) invisible-char)) (:content mark)))
 
-(defn incremental-positions [offset marks]
-  (if (empty? marks)
-    marks
-    (let [mark     (first marks)
-          position (:position mark)
-          content  (:content mark)]
-      (cons (update mark :position #(- % offset)) (incremental-positions (+ position (count content)) (rest marks))))))
+(defn mark->txt [mark]
+  [(apply str (repeat (:position mark) " ")) (:content mark)])
+
+(defn incremental-positions 
+  ([marks] (incremental-positions 0 marks))
+  ([offset marks]
+    (if (empty? marks)
+      marks
+      (let [mark     (first marks)
+            position (:position mark)
+            content  (:content mark)]
+        (cons (update mark :position #(- % offset)) (incremental-positions (+ position (count content)) (rest marks)))))))
 
 (defn print-marks [marks]
-  (reduce #(concat %1 (print-mark %2)) "" (incremental-positions 0 (rb-tree->ordered-seq marks))))
+  (reduce #(concat %1 (print-mark %2)) "" (incremental-positions (rb-tree->ordered-seq marks))))
+
+(defn marks->txt [marks]
+  (apply str (reduce #(concat %1 (mark->txt %2)) "" (incremental-positions (rb-tree->ordered-seq marks)))))
 
 (def initial-focus-wrapper 
   (with-meta identity
@@ -173,16 +184,37 @@
   (let [last-inserted-line (reduce #(if (> (:id %1) (:id %2)) %1 %2) nil @lines)]
     [:div (map #(print-line % (= last-inserted-line %)) @lines)]))
 
-(defn print-controls []
+(defn print-control-instructions []
   [:p
     "Edit lines with lyrics" [:br]
     [:b "Enter | Shift+Enter"] " - For adding a new line after/before the current one" [:br]
     [:b "Alt+Enter | Right click"]  " - For adding a chord in the caret position" [:br]
     [:b "Tab | Shift+Tab"] " - Focus next/previous line"])
 
+(defn line->txt [line]
+  [(marks->txt (:chord line)) (:lyric line)])
+
+; TODO - make model->txt and print-lines polymorphic for transformation - moliva - 23/6/2015
+(defn model->txt [lines]
+  (str/join "\n" (mapcat line->txt lines)))
+
+(defn export-song-link []
+  (str "data:application/octet-stream;charset=utf-8," (cem/url-encode (model->txt @lines))))
+
+(defn print-controls []
+  [:div 
+    [:a 
+      {:type "submit"
+       :class "btn btn-default"
+       :download default-song-name
+       :href (export-song-link)}
+      "Export"]
+    [:button {:disabled true} "Import"]])
+
 (defn editor-page []
   [:div
     [:h2 "Songbook editor!"]
-    [print-controls]
-    [print-lines]])
+    [print-control-instructions]
+    [print-lines]
+    [print-controls]])
 

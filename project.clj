@@ -14,7 +14,7 @@
                  [reagent-forms "0.5.0"]
                  [reagent-utils "0.1.4"]
                  [org.clojure/clojurescript "0.0-3308" :scope "provided"]
-                 ;[org.clojure/clojurescript "0.0-3211" :scope "provided"]
+                 [com.cemerick/url "0.1.1"]
                  [ring "1.3.2"]
                  [ring/ring-defaults "0.1.4"]
                  [prone "0.8.1"]
