@@ -21,6 +21,9 @@
 
 (def lines (atom [(assoc (new-line) :lyric first-lyric-line)]))
 
+(defn line-div-id [line]
+  (str "line-div-" (:id line)))
+
 (defn editor-id [line]
   (str "editor-line-" (:id line)))
 
@@ -33,10 +36,8 @@
     (swap! lines add-at (new-line) position)))
 
 (defn insert-new-line [line]
-  (let [position (inc (index-of @lines line))
-        nl (new-line)]
-    (swap! lines add-at nl position)
-    (.focus (.getElementById js/document (editor-id nl)))))
+  (let [position (inc (index-of @lines line))]
+    (swap! lines add-at (new-line) position)))
 
 (defn swap-line! [line field value & kvs]
   (swap! lines assoc (index-of @lines line) (apply updatem (concat [line field value] kvs))))
@@ -141,6 +142,7 @@
 
 (defn print-line [line should-focus]
   [:div
+   {:key (line-div-id line)}
    [:p.chord-line (print-marks (:chord line))]
    (if should-focus [initial-focus-wrapper [line-input line]] [line-input line])])
 
