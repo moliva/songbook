@@ -1,7 +1,8 @@
-(ns songbook.utils.core)
+(ns songbook.utils.core
+  (:require [clojure.string :as str]))
 
 (defn normalize-string [string]
-  (clojure.string/replace string (char 160) " "))
+  (str/replace string (char 160) " "))
 
 (defn index-of [vector element]
   (.indexOf (to-array vector) element))

@@ -58,11 +58,8 @@
      "resources/public/facss/fa.css" "resources/public/vendor/font-awesome/css/font-awesome.css"
      "resources/public/js/vendor.min.js" ["resources/public/vendor/jquery/dist/jquery.js"
                                           "resources/public/vendor/bootstrap/dist/js/bootstrap.js"]
-     "resources/public/fonts/" ["resources/public/vendor/font-awesome/fonts/*" "resources/public/vendor/bootsrap/dist/fonts/*"]
-     "resources/public/bootstrapcss/" ["resources/public/vendor/bootstrap/dist/css/bootstrap.css" 
-                                                    "resources/public/vendor/bootstrap/dist/css/bootstrap-theme.css"
-                                                    "resources/public/vendor/bootstrap/dist/css/bootstrap-theme.css.map"
-                                                    "resources/public/vendor/bootstrap/dist/css/bootstrap.css.map"]
+     "resources/public/bootstrapcss/bootstrap.css" ["resources/public/vendor/bootstrap/dist/css/bootstrap.css" 
+                                                    "resources/public/vendor/bootstrap/dist/css/bootstrap-theme.css"]
      }}
 
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
@@ -92,7 +89,7 @@
 
                    :figwheel {:http-server-root "public"
                               :server-port 3449
-                              :css-dirs ["resources/public/css"]
+                              :css-dirs ["resources/public/css" "resources/public/facss" "resources/public/bootstrapcss"]
                               :ring-handler songbook.handler/app}
 
                    :env {:dev true}

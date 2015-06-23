@@ -45,16 +45,16 @@
 (defn swap-line! [line field value & kvs]
   (swap! lines assoc (index-of @lines line) (apply updatem (concat [line field value] kvs))))
 
-(defn find-end-offset [before after length]		
-  (let [length-before (count before)		
-        length-after  (count after)]		
-    (reduce #(let [index-before (- length-before %2 1)		
-                   index-after  (- length-after %2 1)]		
-               (if (and 		
-                    (= nil %1) 		
-                    (not= (nth before index-before) (nth after index-after)))		
+(defn find-end-offset [before after length]
+  (let [length-before (count before)
+        length-after  (count after)]
+    (reduce #(let [index-before (- length-before %2 1)
+                   index-after  (- length-after %2 1)]
+               (if (and
+                    (= nil %1)
+                    (not= (nth before index-before) (nth after index-after)))
                 [index-before index-after]
-                %1)) 		
+                %1))
            nil (range length))))
 
 (defn find-start-offset [before after length]
@@ -82,10 +82,10 @@
      (> (.indexOf before after) 0)     {:type :deletion :start 0 :end (dec (.indexOf before after))}
      ; both before and after might share a first part => recurse after it!
      (let [offset (find-start-offset before after length)]
-       (> offset 0)) (let [offset        (find-start-offset before after length) 
+       (> offset 0)) (let [offset        (find-start-offset before after length)
                            inc-by-offset #(+ offset %)
                            result        (diff-region (.substring before offset) (.substring after offset))]
-                       (if (= :replacement (:type result)) 
+                       (if (= :replacement (:type result))
                          (updatem result :start inc-by-offset :end-before inc-by-offset :end-after inc-by-offset)
                          (updatem result :start inc-by-offset :end inc-by-offset)))
      ; they don't share a first part, but they do share the last part => replacement!
@@ -94,12 +94,12 @@
 
 (defn updated-chords [chord diff]
   (match diff
-         {:type :insertion :start start :end end} 
+         {:type :insertion :start start :end end}
            (shift-right chord start (inc (- end start)))
-         {:type :deletion :start start :end end}  
+         {:type :deletion :start start :end end}
            (shift-left chord start (inc (- end start)))
-         {:type :replacement :start start :end-before endb :end-after enda}  
-           (let [updated-chord (shift-left chord start (inc (- endb start)))] 
+         {:type :replacement :start start :end-before endb :end-after enda}
+           (let [updated-chord (shift-left chord start (inc (- endb start)))]
              (shift-right updated-chord start (inc (- enda start))))
          :else chord))
 
@@ -124,6 +124,7 @@
 
 (defn line-input [line]
   [:p.editor-line {:content-editable true
+                   :class "col-md-11"
                    :id (editor-id line)
                    :on-context-menu #(do
                                        (.preventDefault %)
@@ -131,22 +132,22 @@
                    :on-input #(let
                                 [originalLyrics (:lyric line)
                                  newLyrics      (-> % .-target .-innerText)]
-                                 (changed-lyrics line originalLyrics newLyrics))
+                                (changed-lyrics line originalLyrics newLyrics))
                    :on-key-press #(let [key (-> % .-key)]
-                                          (cond
-                                            (and (= "Enter" key) (.-altKey %))
-                                              (do
-                                                (.preventDefault %)
-                                                (chord-prompt line))
-                                            (and (= "Enter" key) (.-shiftKey %))
-                                              (do
-                                                (.preventDefault %)
-                                                (insert-new-line-before line))
-                                            (= "Enter" key)
-                                              (do
-                                                (.preventDefault %)
-                                                (insert-new-line line))))}
-         (:lyric line)])
+                                    (cond
+                                      (and (= "Enter" key) (.-altKey %))
+                                      (do
+                                        (.preventDefault %)
+                                        (chord-prompt line))
+                                      (and (= "Enter" key) (.-shiftKey %))
+                                      (do
+                                        (.preventDefault %)
+                                        (insert-new-line-before line))
+                                      (= "Enter" key)
+                                      (do
+                                        (.preventDefault %)
+                                        (insert-new-line line))))}
+   (:lyric line)])
 
 (defn print-mark [mark]
   (concat (apply str (repeat (:position mark) invisible-char)) (:content mark)))
@@ -154,7 +155,7 @@
 (defn mark->txt [mark]
   [(apply str (repeat (:position mark) " ")) (:content mark)])
 
-(defn incremental-positions 
+(defn incremental-positions
   ([marks] (incremental-positions 0 marks))
   ([offset marks]
     (if (empty? marks)
@@ -170,22 +171,30 @@
 (defn marks->txt [marks]
   (apply str (reduce #(concat %1 (mark->txt %2)) "" (incremental-positions (rb-tree->ordered-seq marks)))))
 
-(def initial-focus-wrapper 
+(def initial-focus-wrapper
   (with-meta identity
     {:component-did-mount #(.focus (reagent/dom-node %))}))
 
+(defn line-input-row [line should-focus]
+  [:div {:class "row"}
+   [:i {:class "col-md-1 fa fa-edit fa-2x"}]
+   (if should-focus [initial-focus-wrapper [line-input line]] [line-input line])])
+
 (defn print-line [line should-focus]
   [:div
-   {:key (line-div-id line)}
-   [:p.chord-line (print-marks (:chord line))]
-   (if should-focus [initial-focus-wrapper [line-input line]] [line-input line])])
+   {:key (line-div-id line)
+    :class "container-fluid"}
+   [:div {:class "row"} 
+     [:i {:class "col-md-1"}]
+     [:p.chord-line {:class "col-md-11"} (print-marks (:chord line))]]
+   [line-input-row line should-focus]])
 
 (defn print-lines []
   (let [last-inserted-line (reduce #(if (> (:id %1) (:id %2)) %1 %2) nil @lines)]
     [:div (map #(print-line % (= last-inserted-line %)) @lines)]))
 
 (defn print-control-instructions []
-  [:p
+  [:p {:class "jumbotron"}
     "Edit lines with lyrics" [:br]
     [:b "Enter | Shift+Enter"] " - For adding a new line after/before the current one" [:br]
     [:b "Alt+Enter | Right click"]  " - For adding a chord in the caret position" [:br]
@@ -202,18 +211,22 @@
   (str "data:application/octet-stream;charset=utf-8," (cem/url-encode (model->txt @lines))))
 
 (defn print-controls []
-  [:div 
-    [:a 
-      {:type "submit"
-       :class "btn btn-default"
+  [:div {:class "pull-right"}
+    [:a
+      {:type "button"
+       :class "btn btn-primary"
+       :style {:margin "0 2px"}
        :download default-song-name
        :href (export-song-link)}
       "Export"]
-    [:button {:disabled true} "Import"]])
+    [:button {:disabled true
+              :style {:margin "0 2px"}
+              :class "btn btn-info"}
+      "Import"]])
 
 (defn editor-page []
-  [:div
-    [:h2 "Songbook editor!"]
+  [:div {:class "container main-body"}
+    [:h1 "Songbook editor!"]
     [print-control-instructions]
     [print-lines]
     [print-controls]])

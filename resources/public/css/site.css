@@ -1,4 +1,4 @@
-body {
+/*body {
   font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
   max-width: 600px;
   margin: 0 auto;
@@ -32,8 +32,9 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
+*/
 .chord-line {
+  font-size: large;
   font-family: 'Courier New';
   padding: 0 9px;
   color: red;
@@ -41,6 +42,7 @@ a:hover {
 }
 
 .editor-line {
+  font-size: large;
   font-family: 'Courier New';
   padding: 0 9px;
   border-color: #ddd;
@@ -49,3 +51,6 @@ a:hover {
   border-radius: 3px;
 }
 
+.main-body {
+  width: 60%;
+}
