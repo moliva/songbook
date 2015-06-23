@@ -122,9 +122,12 @@
                (and (not (nil? current-mark)) (= chord "")) (swap-line! line :chord #(model/delete-val % current-mark))
                (not= chord "") (swap-line! line :chord #(insert-val % (->Mark position chord))))))
 
+(defn remove-line [line]
+  (if (> (count @lines) 1) (reset! lines (vec (filter (fn [l] (not= line l)) @lines)))))
+
 (defn line-input [line]
   [:p.editor-line {:content-editable true
-                   :class "col-md-11"
+                   :class "col-md-10"
                    :id (editor-id line)
                    :on-context-menu #(do
                                        (.preventDefault %)
@@ -133,6 +136,12 @@
                                 [originalLyrics (:lyric line)
                                  newLyrics      (-> % .-target .-innerText)]
                                 (changed-lyrics line originalLyrics newLyrics))
+                   :on-key-down #(let [key (-> % .-key)]
+                                         (cond
+                                           (and (= "Backspace" key) (empty? (:lyric line)))
+                                           (do
+                                             (.preventDefault %)
+                                             (remove-line line))))
                    :on-key-press #(let [key (-> % .-key)]
                                     (cond
                                       (and (= "Enter" key) (.-altKey %))
@@ -178,7 +187,9 @@
 (defn line-input-row [line should-focus]
   [:div {:class "row"}
    [:i {:class "col-md-1 fa fa-edit fa-2x"}]
-   (if should-focus [initial-focus-wrapper [line-input line]] [line-input line])])
+   (if should-focus [initial-focus-wrapper [line-input line]] [line-input line])
+   [:a {:on-click #(remove-line line)} [:i {:class "col-md-1 fa fa-remove fa-2x text-danger"}]]
+   ])
 
 (defn print-line [line should-focus]
   [:div
