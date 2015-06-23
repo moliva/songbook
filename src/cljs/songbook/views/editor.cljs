@@ -42,6 +42,18 @@
 (defn swap-line! [line field value & kvs]
   (swap! lines assoc (index-of @lines line) (apply updatem (concat [line field value] kvs))))
 
+(defn find-end-offset [before after length]		
+  (let [length-before (count before)		
+        length-after  (count after)]		
+    (reduce #(let [index-before (- length-before %2 1)		
+                   index-after  (- length-after %2 1)]		
+               (if (and 		
+                    (= nil %1) 		
+                    (not= (nth before index-before) (nth after index-after)))		
+                [index-before index-after]
+                %1)) 		
+           nil (range length))))
+
 (defn find-start-offset [before after length]
   (reduce #(if (and
                  (nil? %1)
@@ -51,30 +63,41 @@
           nil (range length)))
 
 (defn diff-region [before after]
-  (cond
-    ; they are equal => no change!
-    (= before after)                  {}
-    ; empty after => the line was deleted!
-    (empty? after)                    {:type :deletion :start 0 :end (dec (count before))}
-    ; before is included and is the first part of after => addition!
-    (= (.indexOf after before) 0)     {:type :insertion :start (count before) :end (dec (count after))}
-    ; before is included and is the last part of after => addition!
-    (> (.indexOf after before) 0)     {:type :insertion :start 0 :end (dec (.indexOf after before))}
-    ; after is included and is the first part of before => deletion!
-    (= (.indexOf before after) 0)     {:type :deletion :start (count after) :end (dec (count before))}
-    ; before is included and is the last part of after => deletion!
-    (> (.indexOf before after) 0)     {:type :deletion :start 0 :end (dec (.indexOf before after))}
-    ; else we'll go through a deeper analysis
-    ; TODO - handle change events (insertions + deletions)
-    :else (let [length (min (count before) (count after))
-                offset (find-start-offset before after length)
-                result (diff-region (.substring before offset) (.substring after offset))]
-      (updatem result :start #(+ offset %) :end #(+ offset %)))))
+  (let [length (min (count before) (count after))]
+    (cond
+     ; they are equal => no change!
+     (= before after)                  {}
+     ; empty after => the line was deleted!
+     (empty? after)                    {:type :deletion :start 0 :end (dec (count before))}
+     ; before is included and is the first part of after => addition!
+     (= (.indexOf after before) 0)     {:type :insertion :start (count before) :end (dec (count after))}
+     ; before is included and is the last part of after => addition!
+     (> (.indexOf after before) 0)     {:type :insertion :start 0 :end (dec (.indexOf after before))}
+     ; after is included and is the first part of before => deletion!
+     (= (.indexOf before after) 0)     {:type :deletion :start (count after) :end (dec (count before))}
+     ; before is included and is the last part of after => deletion!
+     (> (.indexOf before after) 0)     {:type :deletion :start 0 :end (dec (.indexOf before after))}
+     ; both before and after might share a first part => recurse after it!
+     (let [offset (find-start-offset before after length)]
+       (> offset 0)) (let [offset        (find-start-offset before after length) 
+                           inc-by-offset #(+ offset %)
+                           result        (diff-region (.substring before offset) (.substring after offset))]
+                       (if (= :replacement (:type result)) 
+                         (updatem result :start inc-by-offset :end-before inc-by-offset :end-after inc-by-offset)
+                         (updatem result :start inc-by-offset :end inc-by-offset)))
+     ; they don't share a first part, but they do share the last part => replacement!
+     :else (let [offset (find-end-offset before after length)]
+       {:type :replacement :start 0 :end-before (offset 0) :end-after (offset 1)}))))
 
 (defn updated-chords [chord diff]
   (match diff
-         {:type :insertion :start start :end end} (shift-right chord start (inc (- end start)))
-         {:type :deletion :start start :end end}  (shift-left chord start (inc (- end start)))
+         {:type :insertion :start start :end end} 
+           (shift-right chord start (inc (- end start)))
+         {:type :deletion :start start :end end}  
+           (shift-left chord start (inc (- end start)))
+         {:type :replacement :start start :end-before endb :end-after enda}  
+           (let [updated-chord (shift-left chord start (inc (- endb start)))] 
+             (shift-right updated-chord start (inc (- enda start))))
          :else chord))
 
 (defn changed-lyrics [line originalLyrics newLyrics]
