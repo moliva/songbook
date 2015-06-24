@@ -2,7 +2,7 @@
     (:require [reagent.core :as reagent :refer [atom]]
               [cljs.core.match :refer-macros [match]]
               [clojure.string :as str]
-              [songbook.utils.core :refer [normalize-string updatem index-of]]
+              [songbook.utils.core :refer [normalize-string updatem index-of find-first]]
               [cemerick.url :as cem]
               [songbook.model.core :as model :refer [->Mark insert-val rb-tree->ordered-seq shift-right shift-left]]))
 
@@ -42,11 +42,6 @@
   (let [position (inc (index-of @lines line))]
     (swap! lines add-at (new-line) position)))
 
-(defn find-first [predicate collection]
-  (->> collection
-       (filter predicate)
-       (first)))
-
 (defn index-of-id [lines id]
   (let [line (find-first #(= id (:id %)) lines)]
     (index-of lines line)))
@@ -60,7 +55,7 @@
     (reduce #(let [index-before (- length-before %2 1)
                    index-after  (- length-after %2 1)]
                (if (and
-                    (= nil %1)
+                    (nil? %1)
                     (not= (nth before index-before) (nth after index-after)))
                 [index-before index-after]
                 %1))
@@ -117,12 +112,9 @@
     (if (not (empty? diff))
       (swap-line! line :lyric #(identity newLyrics) :chord #(updated-chords % diff)))))
 
-(defn mark-at [position marks]
-  (songbook.model.core/find-val marks position))
-
 (defn chord-prompt [line]
-  (let [position      (.-startOffset (.getRangeAt (.getSelection js/window) 0))
-        current-mark  (mark-at position (:chord line))
+  (let [position      (-> js/window .getSelection (.getRangeAt 0) .-startOffset)
+        current-mark  (model/find-val (:chord line) position)
         current-chord (:content current-mark)
         chord         (js/prompt input-chord-promp-message (if (nil? current-chord) "" current-chord))]
              (cond
@@ -132,7 +124,8 @@
                (not= chord "") (swap-line! line :chord #(insert-val % (->Mark position chord))))))
 
 (defn remove-line [line]
-  (if (> (count @lines) 1) (reset! lines (vec (filter (fn [l] (not= line l)) @lines)))))
+  (if (> (count @lines) 1) 
+    (reset! lines (->> @lines (filter #(not= line %)) vec))))
 
 (defn line-input [line]
   [:p.editor-line {:content-editable true
@@ -204,7 +197,7 @@
   [:div
    {:key (line-div-id line)
     :class "container-fluid"}
-   [:div {:class "row"} 
+   [:div {:class "row"}
      ;[:i {:class "col-md-1"}]
      [:p.chord-line {:class "col-md-11"} (print-marks (:chord line))]]
    [line-input-row line should-focus]])
@@ -218,7 +211,9 @@
 
 ; TODO - make model->txt and print-lines polymorphic for transformation - moliva - 23/6/2015
 (defn model->txt [lines]
-  (str/join "\n" (mapcat line->txt lines)))
+  (->> lines
+       (mapcat line->txt)
+       (str/join "\n")))
 
 (defn export-song-link []
   (str "data:application/octet-stream;charset=utf-8," (cem/url-encode (model->txt @lines))))
@@ -242,7 +237,7 @@
     "Edit lines with lyrics" [:br]
     [:b "Enter | Shift+Enter"] " - For adding a new line after/before the current one" [:br]
     [:b "Alt+Enter | Right click"]  " - For adding a chord in the caret position" [:br]
-    [:b "Tab | Shift+Tab"] " - Focus next/previous line" [:br] 
+    [:b "Tab | Shift+Tab"] " - Focus next/previous line" [:br]
     [:b "Backspace on empty line | Click X"] " - Delete a line"])
 
 (defn editor-page []

@@ -4,6 +4,11 @@
 (defn normalize-string [string]
   (str/replace string (char 160) " "))
 
+(defn find-first [predicate collection]
+  (->> collection
+       (filter predicate)
+       first))
+
 (defn index-of [vector element]
   (.indexOf (to-array vector) element))
 
