@@ -6,14 +6,14 @@
               [cemerick.url :as cem]
               [songbook.model.core :as model :refer [->Mark insert-val rb-tree->ordered-seq shift-right shift-left]]))
 
-(def input-chord-promp-message  "Input a chord for the part")
-(def invisible-char "\u00A0")
-(def first-lyric-line "A sample lyric line \u266B")
-(def default-lyric-line "")
-(def default-song-name  "song.txt")
-(def line-prototype {:id -1 :lyric default-lyric-line :chord nil})
+(defonce input-chord-promp-message  "Input a chord for the part")
+(defonce invisible-char "\u00A0")
+(defonce first-lyric-line "A sample lyric line \u266B")
+(defonce default-lyric-line "")
+(defonce default-song-name  "song.txt")
+(defonce line-prototype {:id -1 :lyric default-lyric-line :chord nil})
 
-(def id-gen (atom -1))
+(defonce id-gen (atom -1))
 
 (defn next-id []
   (swap! id-gen inc)
@@ -22,7 +22,7 @@
 (defn new-line []
   (assoc line-prototype :id (next-id)))
 
-(def lines (atom [(assoc (new-line) :lyric first-lyric-line)]))
+(defonce lines (atom [(assoc (new-line) :lyric first-lyric-line)]))
 
 (defn line-div-id [line]
   (str "line-div-" (:id line)))
@@ -42,8 +42,14 @@
   (let [position (inc (index-of @lines line))]
     (swap! lines add-at (new-line) position)))
 
+(defn index-of-id [lines id]
+  (let [line (->> lines
+               (filter #(= id (:id %)))
+               (first))]
+    (index-of lines line)))
+
 (defn swap-line! [line field value & kvs]
-  (swap! lines assoc (index-of @lines line) (apply updatem (concat [line field value] kvs))))
+  (swap! lines assoc (index-of-id @lines (:id line)) (apply updatem (concat [line field value] kvs))))
 
 (defn find-end-offset [before after length]
   (let [length-before (count before)
@@ -127,7 +133,7 @@
 
 (defn line-input [line]
   [:p.editor-line {:content-editable true
-                   :class "col-md-10"
+                   :class "col-md-11"
                    :id (editor-id line)
                    :on-context-menu #(do
                                        (.preventDefault %)
@@ -180,15 +186,15 @@
 (defn marks->txt [marks]
   (apply str (reduce #(concat %1 (mark->txt %2)) "" (incremental-positions (rb-tree->ordered-seq marks)))))
 
-(def initial-focus-wrapper
+(defonce initial-focus-wrapper
   (with-meta identity
     {:component-did-mount #(.focus (reagent/dom-node %))}))
 
 (defn line-input-row [line should-focus]
   [:div {:class "row"}
-   [:i {:class "col-md-1 fa fa-edit fa-2x"}]
+   ;[:i {:class "col-md-1 fa fa-edit fa-2x"}]
    (if should-focus [initial-focus-wrapper [line-input line]] [line-input line])
-   [:a {:on-click #(remove-line line)} [:i {:class "col-md-1 fa fa-remove fa-2x text-danger"}]]
+   [:a {:class "text-center" :on-click #(remove-line line)} [:i {:class "col-md-1 fa fa-remove fa-2x text-danger"}]]
    ])
 
 (defn print-line [line should-focus]
@@ -196,20 +202,13 @@
    {:key (line-div-id line)
     :class "container-fluid"}
    [:div {:class "row"} 
-     [:i {:class "col-md-1"}]
+     ;[:i {:class "col-md-1"}]
      [:p.chord-line {:class "col-md-11"} (print-marks (:chord line))]]
    [line-input-row line should-focus]])
 
 (defn print-lines []
   (let [last-inserted-line (reduce #(if (> (:id %1) (:id %2)) %1 %2) nil @lines)]
     [:div (map #(print-line % (= last-inserted-line %)) @lines)]))
-
-(defn print-control-instructions []
-  [:p {:class "jumbotron"}
-    "Edit lines with lyrics" [:br]
-    [:b "Enter | Shift+Enter"] " - For adding a new line after/before the current one" [:br]
-    [:b "Alt+Enter | Right click"]  " - For adding a chord in the caret position" [:br]
-    [:b "Tab | Shift+Tab"] " - Focus next/previous line"])
 
 (defn line->txt [line]
   [(marks->txt (:chord line)) (:lyric line)])
@@ -234,6 +233,13 @@
               :style {:margin "0 2px"}
               :class "btn btn-info"}
       "Import"]])
+
+(defn print-control-instructions []
+  [:p {:class "jumbotron"}
+    "Edit lines with lyrics" [:br]
+    [:b "Enter | Shift+Enter"] " - For adding a new line after/before the current one" [:br]
+    [:b "Alt+Enter | Right click"]  " - For adding a chord in the caret position" [:br]
+    [:b "Tab | Shift+Tab"] " - Focus next/previous line"])
 
 (defn editor-page []
   [:div {:class "container main-body"}
