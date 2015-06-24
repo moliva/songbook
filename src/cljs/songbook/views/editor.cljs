@@ -42,10 +42,13 @@
   (let [position (inc (index-of @lines line))]
     (swap! lines add-at (new-line) position)))
 
+(defn find-first [predicate collection]
+  (->> collection
+       (filter predicate)
+       (first)))
+
 (defn index-of-id [lines id]
-  (let [line (->> lines
-               (filter #(= id (:id %)))
-               (first))]
+  (let [line (find-first #(= id (:id %)) lines)]
     (index-of lines line)))
 
 (defn swap-line! [line field value & kvs]
