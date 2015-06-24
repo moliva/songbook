@@ -1,3 +1,4 @@
+**/*.min.*
 /target
 /classes
 /checkouts
