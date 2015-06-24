@@ -11,6 +11,7 @@
   (html
    [:html
     [:head
+     [:title "Ultimate Songbook \u266B"]
      [:meta {:charset "utf-8"}]
      [:meta {:name "viewport"
              :content "width=device-width, initial-scale=1"}]
