@@ -239,7 +239,8 @@
     "Edit lines with lyrics" [:br]
     [:b "Enter | Shift+Enter"] " - For adding a new line after/before the current one" [:br]
     [:b "Alt+Enter | Right click"]  " - For adding a chord in the caret position" [:br]
-    [:b "Tab | Shift+Tab"] " - Focus next/previous line"])
+    [:b "Tab | Shift+Tab"] " - Focus next/previous line" [:br] 
+    [:b "Backspace on empty line | Click X"] " - Delete a line"])
 
 (defn editor-page []
   [:div {:class "container main-body"}
