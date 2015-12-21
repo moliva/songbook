@@ -1,12 +1,12 @@
 (ns songbook.core
-    (:require [reagent.core :as reagent :refer [atom]]
-              [reagent.session :as session]
-              [secretary.core :as secretary :include-macros true]
-              [goog.events :as events]
-              [goog.history.EventType :as EventType]
-              [cljsjs.react :as react]
-              [songbook.views.editor :as editor])
-    (:import goog.History))
+  (:require [reagent.core :as reagent :refer [atom]]
+            [reagent.session :as session]
+            [secretary.core :as secretary :include-macros true]
+            [goog.events :as events]
+            [goog.history.EventType :as EventType]
+            [cljsjs.react :as react]
+            [songbook.views.editor :as editor])
+  (:import goog.History))
 
 ;; -------------------------
 ;; Views
@@ -42,9 +42,9 @@
 (defn hook-browser-navigation! []
   (doto (History.)
     (events/listen
-     EventType/NAVIGATE
-     (fn [event]
-       (secretary/dispatch! (.-token event))))
+      EventType/NAVIGATE
+      (fn [event]
+        (secretary/dispatch! (.-token event))))
     (.setEnabled true)))
 
 ;; -------------------------

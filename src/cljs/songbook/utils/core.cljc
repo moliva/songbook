@@ -9,6 +9,10 @@
        (filter predicate)
        first))
 
+(defn add-at [vector val pos]
+  (let [split (split-at pos vector)]
+    (vec (concat (split 0) [val] (split 1)))))
+
 (defn index-of [vector element]
   (.indexOf (to-array vector) element))
 
@@ -18,8 +22,8 @@
       (if (next kvs)
         (recur ret (first kvs) (second kvs) (nnext kvs))
         (throw #?(:clj  (IllegalArgumentException.
-                               "updatem expects even number of arguments after map/vector, found odd number")
-                  :cljs (js/Error.
+                          "updatem expects even number of arguments after map/vector, found odd number")
+                       :cljs (js/Error.
                                "updatem expects even number of arguments after map/vector, found odd number"))))
       ret)))
 

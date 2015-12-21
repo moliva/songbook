@@ -1,7 +1,7 @@
 (ns songbook.model.core
   (:require
     #?(:cljs [cljs.core.match :refer-macros [match]]
-       :clj  [clojure.core.match :refer [match]])
+             :clj  [clojure.core.match :refer [match]])
     [songbook.utils.core :refer [between]]))
 
 (defrecord Mark [position content])
@@ -11,17 +11,17 @@
   that have at least one red child and one red grandchild"
   [tree]
   (match [tree]
-    [(:or ;; Left child red with left red grandchild
-      [:black [:red [:red a x b] y c] z d]
-      ;; Left child red with right red grandchild
-      [:black [:red a x [:red b y c]] z d]
-      ;; Right child red with left red grandchild
-      [:black a x [:red [:red b y c] z d]]
-      ;; Right child red with right red grandchild
-      [:black a x [:red b y [:red c z d]]])] [:red [:black a x b]
-                                                   y
-                                                   [:black c z d]]
-      :else tree))
+         [(:or ;; Left child red with left red grandchild
+               [:black [:red [:red a x b] y c] z d]
+               ;; Left child red with right red grandchild
+               [:black [:red a x [:red b y c]] z d]
+               ;; Right child red with left red grandchild
+               [:black a x [:red [:red b y c] z d]]
+               ;; Right child red with right red grandchild
+               [:black a x [:red b y [:red c z d]]])] [:red [:black a x b]
+                                                       y
+                                                       [:black c z d]]
+         :else tree))
 
 (defn insert-val
   "Inserts x in tree.
@@ -30,13 +30,13 @@
   Returned tree is balanced. See also `balance`"
   [tree x]
   (let [ins (fn ins [tree]
-    (match tree
-      nil [:red nil x nil]
-      [color a y b] (cond
-        (< (:position x) (:position y)) (balance [color (ins a) y b])
-        (> (:position x) (:position y)) (balance [color a y (ins b)])
-        :else [color a x b])))
-      [_ a y b] (ins tree)]
+              (match tree
+                     nil [:red nil x nil]
+                     [color a y b] (cond
+                                     (< (:position x) (:position y)) (balance [color (ins a) y b])
+                                     (> (:position x) (:position y)) (balance [color a y (ins b)])
+                                     :else [color a x b])))
+        [_ a y b] (ins tree)]
     [:black a y b]))
 
 (defn find-val
@@ -45,9 +45,9 @@
   (match tree
          nil       nil
          [_ a y b] (cond
-                    (< x (:position y)) (find-val a x)
-                    (> x (:position y)) (find-val b x)
-                    :else y)))
+                     (< x (:position y)) (find-val a x)
+                     (> x (:position y)) (find-val b x)
+                     :else y)))
 
 (defn- rb-tree->tree-seq
   "Return a seq of all nodes in an red-black tree."
@@ -73,8 +73,8 @@
 
 (defn shift-right [content start length]
   (match content
-    nil nil
-    [color a x b] [color (shift-right a start length) (shift-mark x start length) (shift-right b start length)]))
+         nil nil
+         [color a x b] [color (shift-right a start length) (shift-mark x start length) (shift-right b start length)]))
 
 (defn delete-val [tree val]
   (reduce insert-val nil (filter #(not= % val) (rb-tree->seq tree))))
