@@ -54,13 +54,13 @@
 
   :minify-assets
   {:assets
-    {"resources/public/css/site.min.css" "resources/public/css/site.css"
-     "resources/public/facss/fa.css" "resources/public/vendor/font-awesome/css/font-awesome.css"
-     "resources/public/js/vendor.min.js" ["resources/public/vendor/jquery/dist/jquery.js"
-                                          "resources/public/vendor/bootstrap/dist/js/bootstrap.js"]
-     "resources/public/bootstrapcss/bootstrap.css" ["resources/public/vendor/bootstrap/dist/css/bootstrap.css" 
-                                                    "resources/public/vendor/bootstrap/dist/css/bootstrap-theme.css"]
-     }}
+   {"resources/public/css/site.min.css" "resources/public/css/site.css"
+    "resources/public/facss/fa.css" "resources/public/vendor/font-awesome/css/font-awesome.css"
+    "resources/public/js/vendor.min.js" ["resources/public/vendor/jquery/dist/jquery.js"
+                                         "resources/public/vendor/bootstrap/dist/js/bootstrap.js"]
+    "resources/public/bootstrapcss/bootstrap.css" ["resources/public/vendor/bootstrap/dist/css/bootstrap.css" 
+                                                   "resources/public/vendor/bootstrap/dist/css/bootstrap-theme.css"]
+    }}
 
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
                              :compiler {:output-to     "resources/public/js/app.js"
@@ -74,6 +74,7 @@
 
                    :dependencies [[ring-mock "0.1.5"]
                                   [ring/ring-devel "1.3.2"]
+                                  [ring-refresh "0.1.1"]
                                   [weasel "0.6.0"]
                                   [leiningen-core "2.5.1"]
                                   [com.cemerick/piggieback "0.2.1"]
@@ -97,8 +98,8 @@
                    :cljsbuild {:builds {:app {:source-paths ["env/dev/cljs"]
                                               :compiler {:main "songbook.dev"
                                                          :source-map true}}
-}
-}}
+                                        }
+                               }}
 
              :uberjar {:hooks [leiningen.cljsbuild minify-assets.plugin/hooks]
                        :env {:production true}
@@ -106,7 +107,7 @@
                        :omit-source true
                        :cljsbuild {:jar true
                                    :builds {:app
-                                             {:source-paths ["env/prod/cljs"]
-                                              :compiler
-                                              {:optimizations :advanced
-                                               :pretty-print false}}}}}})
+                                            {:source-paths ["env/prod/cljs"]
+                                             :compiler
+                                             {:optimizations :advanced
+                                              :pretty-print false}}}}}})
