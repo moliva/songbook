@@ -35,10 +35,27 @@
       (include-js "js/app.js")
       (include-js "js/vendor.min.js")]]))
 
+(def not-found-page
+  (html
+    [:html
+     [:head
+      [:title title]
+      [:meta {:charset "utf-8"}]
+      [:meta {:name "viewport"
+              :content "width=device-width, initial-scale=1"}]
+      (include-css (if (env :dev) "css/site.css" "css/site.min.css"))
+      (include-css "facss/fa.css")
+      (include-css "bootstrapcss/bootstrap.css")]
+     [:body
+      [:div.container
+       [:h1 "Not Found"]
+       [:div#main
+        [:h2 "\u266B"]]]]]))
+
 (defroutes routes
   (GET "/" [] home-page)
   (resources "/")
-  (not-found "Not Found"))
+  (not-found not-found-page))
 
 (def app
   (let [handler (wrap-defaults routes site-defaults)]
