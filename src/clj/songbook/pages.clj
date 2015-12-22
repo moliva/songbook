@@ -1,6 +1,6 @@
 (ns songbook.pages
   (:require [hiccup.page :refer [html5 include-js include-css]]
-            [environ.core :refer  [env]]))
+            [environ.core :refer [env]]))
 
 (defonce title "Ultimate Songbook")
 
@@ -29,8 +29,13 @@
           [:span.input-group-btn [:a.btn.btn-success "\u266B"]]]]
         [:div#content.row
          [:div#feeds.col-md-6
-          [:ul [:li 1] [:li 2]]]
-         [:div#recommendations.col-md-6]]))
+          [:ul.list-group
+           [:li.list-group-item 1] 
+           [:li.list-group-item 2]]]
+         [:div#recommendations.col-md-6
+          [:ul.list-group
+           [:li.list-group-item "a"]
+           [:li.list-group-item "b"]]]]))
 
 (defn not-found-page []
   (list [:h1 "Not Found"]
