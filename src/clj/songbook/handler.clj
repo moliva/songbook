@@ -4,58 +4,14 @@
             [ring.middleware.defaults :refer [site-defaults wrap-defaults]]
             [ring.middleware.reload :refer [wrap-reload]]
             [ring.middleware.refresh :refer [wrap-refresh]]
-            [hiccup.core :refer [html]]
-            [hiccup.page :refer [include-js include-css]]
             [prone.middleware :refer [wrap-exceptions]]
-            [environ.core :refer [env]]))
-
-(defonce title "Ultimate Songbook")
-
-(def home-page
-  (html
-    [:html
-     [:head
-      [:title title]
-      [:meta {:charset "utf-8"}]
-      [:meta {:name "viewport"
-              :content "width=device-width, initial-scale=1"}]
-      (include-css (if (env :dev) "css/site.css" "css/site.min.css"))
-      (include-css "facss/fa.css")
-      (include-css "bootstrapcss/bootstrap.css")]
-     [:body
-      [:div.container
-       [:h1#title title]
-       [:div#main
-        [:div.input-group
-         [:input.text.form-control {:type :search :placeholder "Search chords"}]
-         [:span.input-group-btn [:a.btn.btn-success "\u266B"]]]]
-       [:div#content.row
-        [:div#feeds.col-md-6]
-        [:div#recommendations.col-md-6]]]
-      (include-js "js/app.js")
-      (include-js "js/vendor.min.js")]]))
-
-(def not-found-page
-  (html
-    [:html
-     [:head
-      [:title title]
-      [:meta {:charset "utf-8"}]
-      [:meta {:name "viewport"
-              :content "width=device-width, initial-scale=1"}]
-      (include-css (if (env :dev) "css/site.css" "css/site.min.css"))
-      (include-css "facss/fa.css")
-      (include-css "bootstrapcss/bootstrap.css")]
-     [:body
-      [:div.container
-       [:h1 "Not Found"]
-       [:div#main
-        [:h2 "\u266B"]]]]]))
+            [environ.core :refer [env]]
+            [songbook.pages :as pages]))
 
 (defroutes routes
-  (GET "/" [] home-page)
+  (GET "/" [] (pages/application pages/title (pages/home-page)))
   (resources "/")
-  (not-found not-found-page))
+  (not-found (pages/application "Not found" (pages/not-found-page))))
 
 (def app
   (let [handler (wrap-defaults routes site-defaults)]
