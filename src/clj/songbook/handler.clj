@@ -12,12 +12,10 @@
             [songbook.pages :as pages]))
 
 (defn handle-login [username password]
-  (if (and (= username "root") (= password "123"))
-    (assoc (redirect "/") :session {:username username})
-    (assoc (redirect "/") :session nil)))
-
-(defn authenticated? [username password]
-  (and (= username "root") (= password "123")))
+  (assoc (redirect "/") 
+         :session (if (and (= username "root") (= password "123"))
+                    {:username username} 
+                    nil)))
 
 (defroutes routes
   (GET "/" {session :session} (pages/application session pages/title (pages/home-page)))
