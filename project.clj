@@ -7,7 +7,7 @@
   :source-paths ["src/clj" "src/cljs"]
 
   :dependencies [; Clojure + ClojureScript
-                 [org.clojure/clojure "1.7.0-RC1"]
+                 [org.clojure/clojure "1.8.0-RC4"]
                  [org.clojure/core.match "0.3.0-alpha4"]
                  [org.clojure/clojurescript "0.0-3308" :scope "provided"]
 
@@ -20,8 +20,10 @@
                  [ring-server "0.4.0"]
                  [ring "1.3.2"]
                  [ring/ring-defaults "0.1.4"]
-                 ;[ring/ring-anti-forgery "1.0.0"]
+                 [ring/ring-anti-forgery "1.0.0"]
+                 ;[ring-basic-authentication "1.0.5"]
                  [prone "0.8.2"]
+
                  [hiccup "1.0.5"]
                  [compojure "1.3.4"]
                  [secretary "1.2.3"]

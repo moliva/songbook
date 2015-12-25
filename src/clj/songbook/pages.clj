@@ -1,10 +1,28 @@
 (ns songbook.pages
   (:require [hiccup.page :refer [html5 include-js include-css]]
+            [ring.middleware.anti-forgery :as anti-forgery]
             [environ.core :refer [env]]))
 
 (defonce title "Ultimate Songbook")
 
-(defn application [title & contents]
+(defn navbar [username]
+  [:nav.navbar.navbar-inverse.navbar-fixed-top
+   [:div.container-fluid
+    [:div.navbar-header
+     [:button.navbar-toggle.collapsed {:data-toggle "collapse" :data-target "main-navbar" :aria-expanded "false"}
+      [:span.sr-only "Toggle navigation"]
+      [:span.icon-bar]
+      [:span.icon-bar]
+      [:span.icon-bar]]
+     [:a.navbar-brand {:href "/"} "\u266B " title]]
+    [:div#main-navbar.collapse.navbar-collapse 
+     ; navbar site main content
+     [:ul.nav.navbar-nav.navbar-right
+      [:li (if (nil? username)
+             [:a {:href "/login"} "Login"]
+             [:a {:href "/profile"} username])]]]]])
+
+(defn application [session title & contents]
   (html5
     [:head
      [:title title]
@@ -16,19 +34,7 @@
      (include-css "bootstrapcss/bootstrap.css")]
     [:body 
      [:div#container
-      [:nav.navbar.navbar-inverse.navbar-fixed-top
-       [:div.container-fluid
-        [:div.navbar-header
-         [:button.navbar-toggle.collapsed {:data-toggle "collapse" :data-target "main-navbar" :aria-expanded "false"}
-          [:span.sr-only "Toggle navigation"]
-          [:span.icon-bar]
-          [:span.icon-bar]
-          [:span.icon-bar]]
-         [:a.navbar-brand {:href "/"} "\u266B " title]]
-        [:div#main-navbar.collapse.navbar-collapse 
-         ; navbar site main content
-         [:ul.nav.navbar-nav.navbar-right
-          [:li [:a {:href "login"} "Login"]]]]]]
+      (navbar (:username session))
       [:div.content contents]
       [:footer.nav.navbar-static-bottom.centered-text
        [:p.navbar-text.center-text 
@@ -77,6 +83,7 @@
      [:div.panel.panel-default.small-panel
       [:div.panel-body
        [:form.form-horizontal {:action "/try-login" :method "post"}
+        [:input {:type "hidden" :name "__anti-forgery-token" :value anti-forgery/*anti-forgery-token*}]
         [:div.form-group
          [:label.col-sm-2.control-label {:for "username"} "Username"]
          [:div.col-sm-10 [:input#username.form-control  {:type "text" :name "username" :placeholder "Username"}]]]
