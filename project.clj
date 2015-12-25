@@ -20,6 +20,7 @@
                  [ring-server "0.4.0"]
                  [ring "1.3.2"]
                  [ring/ring-defaults "0.1.4"]
+                 ;[ring/ring-anti-forgery "1.0.0"]
                  [prone "0.8.2"]
                  [hiccup "1.0.5"]
                  [compojure "1.3.4"]

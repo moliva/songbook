@@ -1,56 +1,79 @@
-/*body {
-  font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
-  max-width: 600px;
-  margin: 0 auto;
-  padding-top: 72px;
-  -webkit-font-smoothing: antialiased;
-  font-size: 1.125em;
-  color: #333;
-  line-height: 1.5em;
+.title {
+	text-align: center;
+	color: white;
 }
 
-h1, h2, h3 {
-  color: #000;
-}
-h1 {
-  font-size: 2.5em
-}
-
-h2 {
-  font-size: 2em
+#main {
+	padding: 80px;
+	margin-bottom: 15px;
+	background: linear-gradient(to bottom right, grey, black);
+	text-align: center;
 }
 
-h3 {
-  font-size: 1.5em
+#search {
+	/*max-width: 60%;*/
 }
 
-a {
-  text-decoration: none;
-  color: #09f;
+#search-control { 
+	margin-bottom: 10px;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-*/
 .chord-line {
-  font-size: large;
-  font-family: 'Courier New';
-  padding: 0 9px;
-  color: red;
-  line-height: 0;
+	font-size: large;
+	font-family: 'Courier New';
+	padding: 0 9px;
+	color: red;
+	line-height: 0;
 }
 
 .editor-line {
-  font-size: large;
-  font-family: 'Courier New';
-  padding: 0 9px;
-  border-color: #ddd;
-  border-style: solid;
-  border-width: thin;
-  border-radius: 3px;
+	font-size: large;
+	font-family: 'Courier New';
+	padding: 0 9px;
+	border-color: #ddd;
+	border-style: solid;
+	border-width: thin;
+	border-radius: 3px;
+}
+
+.centered-text {
+	text-align: center;
 }
 
 .main-body {
-  width: 60%;
+	width: 60%;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+#container {
+	min-height: 100%;
+	position: relative;
+}
+
+footer {
+	background: linear-gradient(white, #ccc);
+	width: 100%;
+
+	position: absolute;
+	bottom: 0;
+	height: 60px;
+}
+
+footer p {
+	width: 100%;
+}
+
+.content {
+	padding-top: 51px;
+	padding-bottom: 60px;
+}
+
+.small-panel {
+	width: 500px;
+	margin: 30px auto;
 }

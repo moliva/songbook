@@ -6,37 +6,84 @@
 
 (defn application [title & contents]
   (html5
-    [:html
-     [:head
-      [:title title]
-      [:meta {:charset "utf-8"}]
-      [:meta {:name "viewport"
-              :content "width=device-width, initial-scale=1"}]
-      (include-css (if (env :dev) "css/site.css" "css/site.min.css"))
-      (include-css "facss/fa.css")
-      (include-css "bootstrapcss/bootstrap.css")]
-     [:body
-      [:div.container contents]]]))
+    [:head
+     [:title title]
+     [:meta {:charset "utf-8"}]
+     [:meta {:name "viewport"
+             :content "width=device-width, initial-scale=1"}]
+     (include-css (if (env :dev) "css/site.css" "css/site.min.css"))
+     (include-css "facss/fa.css")
+     (include-css "bootstrapcss/bootstrap.css")]
+    [:body 
+     [:div#container
+      [:nav.navbar.navbar-inverse.navbar-fixed-top
+       [:div.container-fluid
+        [:div.navbar-header
+         [:button.navbar-toggle.collapsed {:data-toggle "collapse" :data-target "main-navbar" :aria-expanded "false"}
+          [:span.sr-only "Toggle navigation"]
+          [:span.icon-bar]
+          [:span.icon-bar]
+          [:span.icon-bar]]
+         [:a.navbar-brand {:href "/"} "\u266B " title]]
+        [:div#main-navbar.collapse.navbar-collapse 
+         ; navbar site main content
+         [:ul.nav.navbar-nav.navbar-right
+          [:li [:a {:href "login"} "Login"]]]]]]
+      [:div.content contents]
+      [:footer.nav.navbar-static-bottom.centered-text
+       [:p.navbar-text.center-text 
+        [:a {:href "http://github.com/moliva" :target "_blank"} [:i.fa.fa-github.fa-lg]]
+        " "
+        [:a {:href "http://linkedin.com/in/olivamiguel" :target "_blank"} [:i.fa.fa-linkedin.fa-lg]]
+        ]]]
+     (include-js "js/vendor.min.js")]))
 
 ;(include-js "js/app.js")
 ;(include-js "js/vendor.min.js")   
 
 (defn home-page []
-  (list [:h1#title title]
-        [:div#main
-         [:div.input-group
-          [:input.text.form-control {:type :search :placeholder "Search chords"}]
-          [:span.input-group-btn [:a.btn.btn-success "\u266B"]]]]
-        [:div#content.row
-         [:div#feeds.col-md-6
-          [:ul.list-group
-           [:li.list-group-item 1] 
-           [:li.list-group-item 2]]]
-         [:div#recommendations.col-md-6
-          [:ul.list-group
-           [:li.list-group-item "a"]
-           [:li.list-group-item "b"]]]]))
+  (list 
+    [:div#main
+     [:h1.title title]
+     [:div#search
+      [:input#search-control.text.form-control {:type :search :placeholder "Search chords \u266B"}]
+      [:a.btn.btn-success {:onclick "console.log(\"searching for\", document.getElementById(\"search-control\").value)"} "Search!"]
+      ]]
+    [:div#content.container
+     [:div.row
+      [:div#feeds.col-md-6
+       [:ul.list-group
+        [:li.list-group-item 1] 
+        [:li.list-group-item 1] 
+        [:li.list-group-item 1] 
+        [:li.list-group-item 1] 
+        [:li.list-group-item 1] 
+        [:li.list-group-item 1] 
+        [:li.list-group-item 1] 
+        [:li.list-group-item 1] 
+        [:li.list-group-item 1] 
+        [:li.list-group-item 2]]]
+      [:div#recommendations.col-md-6
+       [:ul.list-group
+        [:li.list-group-item "a"]
+        [:li.list-group-item "b"]]]]]))
+
+(defn try-login-page []
+  [:div "Nothing"])
+
+(defn login-page []
+  (list
+    [:div.container
+     [:div.panel.panel-default.small-panel
+      [:div.panel-body
+       [:form.form-horizontal {:action "/try-login" :method "post"}
+        [:div.form-group
+         [:label.col-sm-2.control-label {:for "username"} "Username"]
+         [:div.col-sm-10 [:input#username.form-control  {:type "text" :name "username" :placeholder "Username"}]]]
+        [:div.form-group
+         [:label.col-sm-2.control-label {:for "password"} "Password"]
+         [:div.col-sm-10 [:input#password.form-control  {:type "password" :name "password" :placeholder "Password"}]]]
+        [:div.form-group [:div.col-sm-offset-2.col-sm-10 [:button.btn.btn-default {:type "submit"} "Login"]]]]]]]))
 
 (defn not-found-page []
-  (list [:h1 "Not Found"]
-        [:div#main]))
+  [:h1 "Not Found"])
