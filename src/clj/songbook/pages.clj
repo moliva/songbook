@@ -40,12 +40,16 @@
        [:p.navbar-text.center-text 
         [:a {:href "http://github.com/moliva" :target "_blank"} [:i.fa.fa-github.fa-lg]]
         " "
-        [:a {:href "http://linkedin.com/in/olivamiguel" :target "_blank"} [:i.fa.fa-linkedin.fa-lg]]
-        ]]]
+        [:a {:href "http://linkedin.com/in/olivamiguel" :target "_blank"} [:i.fa.fa-linkedin.fa-lg]]]]]
      (include-js "js/vendor.min.js")]))
 
 ;(include-js "js/app.js")
 ;(include-js "js/vendor.min.js")   
+
+(defn profile-page [username]
+  (list
+    [:div
+     [:h1 username]]))
 
 (defn home-page []
   (list 
@@ -73,9 +77,6 @@
        [:ul.list-group
         [:li.list-group-item "a"]
         [:li.list-group-item "b"]]]]]))
-
-(defn try-login-page []
-  [:div "Nothing"])
 
 (defn login-page []
   (list

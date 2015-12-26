@@ -28,6 +28,9 @@
                  [compojure "1.3.4"]
                  [secretary "1.2.3"]
 
+                 ; Database management
+                 [congomongo "0.4.6"]
+
                  ; Settings management
                  [environ "1.0.0"]
 

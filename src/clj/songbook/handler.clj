@@ -20,6 +20,7 @@
 (defroutes routes
   (GET "/" {session :session} (pages/application session pages/title (pages/home-page)))
   (GET "/login" {session :session} (pages/application session pages/title (pages/login-page)))
+  (GET "/profile" {session :session} (pages/application session pages/title (pages/profile-page (:username session))))
   (POST "/try-login" {params :params} (handle-login (:username params) (:password params)))
   (resources "/")
   (not-found (pages/application nil "Not found" (pages/not-found-page))))
