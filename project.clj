@@ -35,7 +35,9 @@
                  [environ "1.0.0"]
 
                  ; App specific
-                 [com.cemerick/url "0.1.1"]]
+                 [com.cemerick/url "0.1.1"]
+                 [digest "1.4.4"] ; hashing
+                 ]
 
   :repositories { "sonatype-oss-public" "https://oss.sonatype.org/content/groups/public/" }
 
