@@ -1,5 +1,6 @@
 (ns songbook.pages
   (:require [hiccup.page :refer [html5 include-js include-css]]
+            [hiccup.element :refer [link-to]]
             [ring.middleware.anti-forgery :as anti-forgery]
             [songbook.db :as db]
             [environ.core :refer [env]]))
@@ -49,16 +50,18 @@
 
 (defn profile-page [user]
   (list
-    [:div
+    [:div.container
      [:h1 (:displayName user)]
+     [:h3 "Chords"]
      [:ul.list-group
       ; list all user chords being able to edit or delete any of them
       (for [chords-id ["Rust in Peace" "Helter Skelter" "Cemetery Gates" "Hey You"]] 
         [:li.list-group-item 
-         [:a  {:href  (str "chords/" chords-id)} chords-id] " "
+         ; TODO - use link-to and cemerick url-encode
+         [:a {:href (str "chords/get/" chords-id)} chords-id] " "
          [:a {:href (str "chords/edit/" chords-id)} [:i.fa.fa-edit.fa-lg.text-primary]] " "
          [:a {:href (str "chords/delete/" chords-id)} [:i.fa.fa-remove.fa-lg.text-danger]]])]
-     [:a.btn.btn-default  {:href "chords/create"} "Create Chords"]]))
+     [:a.btn.btn-success.pull-right  {:href "chords/create"} [:i.fa.fa-remove.fa-plus]]]))
 
 (defn home-page []
   (list 
