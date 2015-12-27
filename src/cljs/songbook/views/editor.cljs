@@ -135,46 +135,46 @@
       (changed-lyrics new-line "" l))))
 
 (defn line-input [line]
-  [:p.editor-line {:content-editable true
-                   :class "col-md-11"
-                   :id (editor-id line)
-                   :on-context-menu #(do
-                                       (.preventDefault %)
-                                       (chord-prompt line))
-                   :on-input #(let
-                                [original-lyrics (:lyric line)
-                                 new-lines       (str/split (-> % .-target .-innerText) "\n")
-                                 new-lyrics      (first new-lines)]
-                                (changed-lyrics line original-lyrics new-lyrics)
-                                (insert-new-lines line (rest new-lines)))
-                   :on-key-down #(let [key (-> % .-key)]
-                                   (cond
-                                     (and (= "Backspace" key) (empty? (:lyric line)))
-                                     (do
-                                       (.preventDefault %)
-                                       (remove-line line))))
-                   ;                   :on-paste #(let [types (-> % .-clipboardData .-types)]
-                   ;                                (cond
-                   ;                                  (not= -1 (.indexOf types "text/plain"))
-                   ;                                    (let [text (-> % .-clipboardData (.getData "text/plain"))
-                   ;                                          lines (rest (str/split text "\n"))]
-                   ;                                      (doseq [l lines]
-                   ;                                        (let [nl (insert-new-line line)]
-                   ;                                         (changed-lyrics nl "" ))))))
-                   :on-key-press #(let [key (-> % .-key)]
-                                    (cond
-                                      (and (= "Enter" key) (.-altKey %))
-                                      (do
-                                        (.preventDefault %)
-                                        (chord-prompt line))
-                                      (and (= "Enter" key) (.-shiftKey %))
-                                      (do
-                                        (.preventDefault %)
-                                        (insert-new-line-before line))
-                                      (= "Enter" key)
-                                      (do
-                                        (.preventDefault %)
-                                        (insert-new-line line))))}
+  [:p.editor-line.col-md-11 
+   {:content-editable true
+    :id (editor-id line)
+    :on-context-menu #(do
+                        (.preventDefault %)
+                        (chord-prompt line))
+    :on-input #(let
+                 [original-lyrics (:lyric line)
+                  new-lines       (str/split (-> % .-target .-innerText) "\n")
+                  new-lyrics      (first new-lines)]
+                 (changed-lyrics line original-lyrics new-lyrics)
+                 (insert-new-lines line (rest new-lines)))
+    :on-key-down #(let [key (-> % .-key)]
+                    (cond
+                      (and (= "Backspace" key) (empty? (:lyric line)))
+                      (do
+                        (.preventDefault %)
+                        (remove-line line))))
+    ;                   :on-paste #(let [types (-> % .-clipboardData .-types)]
+    ;                                (cond
+    ;                                  (not= -1 (.indexOf types "text/plain"))
+    ;                                    (let [text (-> % .-clipboardData (.getData "text/plain"))
+    ;                                          lines (rest (str/split text "\n"))]
+    ;                                      (doseq [l lines]
+    ;                                        (let [nl (insert-new-line line)]
+    ;                                         (changed-lyrics nl "" ))))))
+    :on-key-press #(let [key (-> % .-key)]
+                     (cond
+                       (and (= "Enter" key) (.-altKey %))
+                       (do
+                         (.preventDefault %)
+                         (chord-prompt line))
+                       (and (= "Enter" key) (.-shiftKey %))
+                       (do
+                         (.preventDefault %)
+                         (insert-new-line-before line))
+                       (= "Enter" key)
+                       (do
+                         (.preventDefault %)
+                         (insert-new-line line))))}
    (:lyric line)])
 
 (defn print-mark [mark]
@@ -204,19 +204,17 @@
              {:component-did-mount #(.focus (reagent/dom-node %))}))
 
 (defn line-input-row [line should-focus]
-  [:div {:class "row"}
-   ;[:i {:class "col-md-1 fa fa-edit fa-2x"}]
+  [:div.row
+   ;[:i.col-md-1.fa.fa-edit.fa-2x]
    (if should-focus [initial-focus-wrapper [line-input line]] [line-input line])
-   [:a {:class "text-center" :on-click #(remove-line line)} [:i {:class "col-md-1 fa fa-remove fa-2x text-danger"}]]
-   ])
+   [:a.text-center {:on-click #(remove-line line)} [:i.col-md-1.fa.fa-remove.fa-2x.text-danger]]])
 
 (defn print-line [line should-focus]
-  [:div
-   {:key (line-div-id line)
-    :class "container-fluid"}
-   [:div {:class "row"}
-    ;[:i {:class "col-md-1"}]
-    [:p.chord-line {:class "col-md-11"} (print-marks (:chord line))]]
+  [:div.container-fluid
+   {:key (line-div-id line)}
+   [:div.row
+    ;[:i.col-md-1]
+    [:p.chord-line.col-md-11 (print-marks (:chord line))]]
    [line-input-row line should-focus]])
 
 (defn print-lines []
@@ -236,29 +234,28 @@
   (str "data:application/octet-stream;charset=utf-8," (cem/url-encode (model->txt @lines))))
 
 (defn print-controls []
-  [:div {:class "pull-right"}
-   [:a
+  [:div.pull-right
+   [:a.btn.btn-primary
     {:type "button"
-     :class "btn btn-primary"
      :style {:margin "0 2px"}
      :download default-song-name
      :href (export-song-link)}
     "Export"]
-   [:button {:disabled true
-             :style {:margin "0 2px"}
-             :class "btn btn-info"}
+   [:a.btn.btn-info 
+    {:disabled true
+     :style {:margin "0 2px"}}
     "Import"]])
 
 (defn print-control-instructions []
-  [:p {:class "jumbotron"}
+  [:p.jumbotron
    "Edit lines with lyrics" [:br]
-   [:b "Enter | Shift+Enter"] " - For adding a new line after/before the current one" [:br]
-   [:b "Alt+Enter | Right click"]  " - For adding a chord in the caret position" [:br]
-   [:b "Tab | Shift+Tab"] " - Focus next/previous line" [:br]
-   [:b "Backspace on empty line | Click X"] " - Delete a line"])
+   [:strong "enter | shift+enter"] " - for adding a new line after/before the current one" [:br]
+   [:strong "alt+enter | right click"]  " - for adding a chord in the caret position" [:br]
+   [:strong "tab | shift+tab"] " - focus next/previous line" [:br]
+   [:strong "backspace on empty line | click x"] " - delete a line"])
 
 (defn editor-page []
-  [:div {:class "container main-body"}
+  [:div.container.main-body
    [:h1 "Songbook editor!"]
    [print-control-instructions]
    [print-lines]

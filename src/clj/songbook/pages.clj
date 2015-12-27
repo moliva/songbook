@@ -1,11 +1,12 @@
 (ns songbook.pages
   (:require [hiccup.page :refer [html5 include-js include-css]]
             [ring.middleware.anti-forgery :as anti-forgery]
+            [songbook.db :as db]
             [environ.core :refer [env]]))
 
 (defonce title "Ultimate Songbook")
 
-(defn navbar [username]
+(defn navbar [user]
   [:nav.navbar.navbar-inverse.navbar-fixed-top
    [:div.container-fluid
     [:div.navbar-header
@@ -18,9 +19,9 @@
     [:div#main-navbar.collapse.navbar-collapse 
      ; navbar site main content
      [:ul.nav.navbar-nav.navbar-right
-      [:li (if (nil? username)
+      [:li (if (nil? user)
              [:a {:href "/login"} "Login"]
-             [:a {:href "/profile"} username])]]]]])
+             [:a {:href "/profile"} (:displayName user)])]]]]])
 
 (defn application [session title & contents]
   (html5
@@ -34,7 +35,7 @@
      (include-css "bootstrapcss/bootstrap.css")]
     [:body 
      [:div#container
-      (navbar (:username session))
+      (navbar (if-some [username (:username session)] (db/get-user username)))
       [:div.content contents]
       [:footer.nav.navbar-static-bottom.centered-text
        [:p.navbar-text.center-text 
@@ -46,10 +47,18 @@
 ;(include-js "js/app.js")
 ;(include-js "js/vendor.min.js")   
 
-(defn profile-page [username]
+(defn profile-page [user]
   (list
     [:div
-     [:h1 username]]))
+     [:h1 (:displayName user)]
+     [:ul.list-group
+      ; list all user chords being able to edit or delete any of them
+      (for [chords-id ["Rust in Peace" "Helter Skelter" "Cemetery Gates" "Hey You"]] 
+        [:li.list-group-item 
+         [:a  {:href  (str "chords/" chords-id)} chords-id] " "
+         [:a {:href (str "chords/edit/" chords-id)} [:i.fa.fa-edit.fa-lg.text-primary]] " "
+         [:a {:href (str "chords/delete/" chords-id)} [:i.fa.fa-remove.fa-lg.text-danger]]])]
+     [:a.btn.btn-default  {:href "chords/create"} "Create Chords"]]))
 
 (defn home-page []
   (list 
@@ -57,8 +66,7 @@
      [:h1.title title]
      [:div#search
       [:input#search-control.text.form-control {:type :search :placeholder "Search chords \u266B"}]
-      [:a.btn.btn-success {:onclick "console.log(\"searching for\", document.getElementById(\"search-control\").value)"} "Search!"]
-      ]]
+      [:a.btn.btn-success {:onclick "console.log(\"searching for\", document.getElementById(\"search-control\").value)"} "Search!"]]]
     [:div#content.container
      [:div.row
       [:div#feeds.col-md-6
