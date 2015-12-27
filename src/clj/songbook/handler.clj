@@ -1,5 +1,5 @@
 (ns songbook.handler
-  (:require [compojure.core :refer [GET POST defroutes]]
+  (:require [compojure.core :refer [GET POST defroutes context]]
             [compojure.route :refer [not-found resources]]
             [ring.middleware.defaults :refer [site-defaults wrap-defaults]]
             [ring.middleware.reload :refer [wrap-reload]]
@@ -26,6 +26,12 @@
   (GET "/login" {session :session} (pages/application session pages/title (pages/login-page)))
   (GET "/profile" {session :session} (pages/application session pages/title (pages/profile-page (if-some [username (:username session)] (db/get-user username)))))
   (POST "/try-login" {params :params} (handle-login (:username params) (:password params)))
+  (context "/chords/:chords-id" [chords-id]
+           (GET "/get" [] nil)
+           (GET "/edit" [] nil)
+           (GET "/delete" [] nil))
+  (GET "/chords" [] nil)
+  (GET "/chords/create" [] nil)
   (resources "/")
   (not-found (pages/application nil "Not found" (pages/not-found-page))))
 

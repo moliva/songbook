@@ -58,9 +58,9 @@
       (for [chords-id ["Rust in Peace" "Helter Skelter" "Cemetery Gates" "Hey You"]] 
         [:li.list-group-item 
          ; TODO - use link-to and cemerick url-encode
-         [:a {:href (str "chords/get/" chords-id)} chords-id] " "
-         [:a {:href (str "chords/edit/" chords-id)} [:i.fa.fa-edit.fa-lg.text-primary]] " "
-         [:a {:href (str "chords/delete/" chords-id)} [:i.fa.fa-remove.fa-lg.text-danger]]])]
+         [:a {:href (str "chords/" chords-id "/get")} chords-id] " "
+         [:a {:href (str "chords/" chords-id "/edit")} [:i.fa.fa-edit.fa-lg.text-primary]] " "
+         [:a {:href (str "chords/" chords-id "/delete")} [:i.fa.fa-remove.fa-lg.text-danger]]])]
      [:a.btn.btn-success.pull-right  {:href "chords/create"} [:i.fa.fa-remove.fa-plus]]]))
 
 (defn home-page []
