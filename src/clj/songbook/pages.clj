@@ -55,12 +55,12 @@
      [:h3 "Chords"]
      [:ul.list-group
       ; list all user chords being able to edit or delete any of them
-      (for [chords-id ["Rust in Peace" "Helter Skelter" "Cemetery Gates" "Hey You"]] 
-        [:li.list-group-item 
-         ; TODO - use link-to and cemerick url-encode
-         [:a {:href (str "chords/" chords-id "/get")} chords-id] " "
-         [:a {:href (str "chords/" chords-id "/edit")} [:i.fa.fa-edit.fa-lg.text-primary]] " "
-         [:a {:href (str "chords/" chords-id "/delete")} [:i.fa.fa-remove.fa-lg.text-danger]]])]
+      (for [chords (db/get-chords user)] 
+        (let [chords-id (:id chords)]
+          [:li.list-group-item 
+           [:a {:href (str "chords/" chords-id "/get")} (:name chords)] " "
+           [:a {:href (str "chords/" chords-id "/edit")} [:i.fa.fa-edit.fa-lg.text-primary]] " "
+           [:a {:href (str "chords/" chords-id "/delete")} [:i.fa.fa-remove.fa-lg.text-danger]]]))]
      [:a.btn.btn-success.pull-right  {:href "chords/create"} [:i.fa.fa-remove.fa-plus]]]))
 
 (defn home-page []

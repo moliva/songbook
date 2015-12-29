@@ -9,3 +9,7 @@
 (defn get-user [username]
   (mongo/with-mongo conn
     (mongo/fetch-one :users :where {:username username})))
+
+(defn get-chords [user]
+  (mongo/with-mongo conn
+    (mongo/fetch :chords :where {:_id {:$in (:chords user)}})))
