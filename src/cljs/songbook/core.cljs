@@ -11,15 +11,6 @@
 ;; -------------------------
 ;; Views
 
-(defn home-page []
-  [:div [:h2 "Welcome to songbook"]
-   [:div [:a {:href "#/about"} "go to about page"]]
-   [:div [:a {:href "#/editor"} "go to editor page"]]])
-
-(defn about-page []
-  [:div [:h2 "About songbook"]
-   [:div [:a {:href "#/"} "go to the home page"]]])
-
 (defn current-page []
   [:div [(session/get :current-page)]])
 
@@ -28,12 +19,6 @@
 (secretary/set-config! :prefix "#")
 
 (secretary/defroute "/" []
-  (session/put! :current-page #'home-page))
-
-(secretary/defroute "/about" []
-  (session/put! :current-page #'about-page))
-
-(secretary/defroute "/editor" []
   (session/put! :current-page #'editor/editor-page))
 
 ;; -------------------------

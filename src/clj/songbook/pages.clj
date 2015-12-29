@@ -31,9 +31,9 @@
      [:meta {:charset "utf-8"}]
      [:meta {:name "viewport"
              :content "width=device-width, initial-scale=1"}]
-     (include-css (if (env :dev) "css/site.css" "css/site.min.css"))
-     (include-css "facss/fa.css")
-     (include-css "bootstrapcss/bootstrap.css")]
+     (include-css (if (env :dev) "/css/site.css" "/css/site.min.css"))
+     (include-css "/facss/fa.css")
+     (include-css "/bootstrapcss/bootstrap.css")]
     [:body 
      [:div#container
       (navbar (if-some [username (:username session)] (db/get-user username)))
@@ -43,10 +43,13 @@
         [:a {:href "http://github.com/moliva" :target "_blank"} [:i.fa.fa-github.fa-lg]]
         " "
         [:a {:href "http://linkedin.com/in/olivamiguel" :target "_blank"} [:i.fa.fa-linkedin.fa-lg]]]]]
-     (include-js "js/vendor.min.js")]))
+     (include-js "/js/vendor.min.js")]))
 
-;(include-js "js/app.js")
-;(include-js "js/vendor.min.js")   
+(defn chords-creation-page [user]
+  (list
+    [:div#app.container]
+    (include-js "/js/vendor.min.js")  
+    (include-js "/js/approot.js")))
 
 (defn profile-page [user]
   (list

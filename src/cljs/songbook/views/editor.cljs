@@ -207,7 +207,8 @@
   [:div.row
    ;[:i.col-md-1.fa.fa-edit.fa-2x]
    (if should-focus [initial-focus-wrapper [line-input line]] [line-input line])
-   [:a.text-center {:on-click #(remove-line line)} [:i.col-md-1.fa.fa-remove.fa-2x.text-danger]]])
+   ; TODO - if unique line, disable delete button - miguel
+   [:a.text-center {:href "#" :on-click #(remove-line line)} [:i.col-md-1.fa.fa-remove.fa-2x.text-danger]]])
 
 (defn print-line [line should-focus]
   [:div.container-fluid
@@ -255,8 +256,8 @@
    [:strong "backspace on empty line | click x"] " - delete a line"])
 
 (defn editor-page []
-  [:div.container.main-body
-   [:h1 "Songbook editor!"]
+  [:div.container.main-body 
+   [:h3 "Chords editor"]
    [print-control-instructions]
    [print-lines]
    [print-controls]])
