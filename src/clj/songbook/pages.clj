@@ -97,20 +97,36 @@
            [:a {:href (str "/users/" username "/delete")} [:i.fa.fa-remove.fa-lg.text-danger]]]))]
      [:a.btn.btn-success.pull-right  {:href "/users/create"} [:i.fa.fa-remove.fa-plus]]]))
 
+(defn get-chords-url [chords-id]
+  (str "chords/" chords-id))
+
+(defn user-page [user]
+  [:div.container
+   [:h1 (:displayName user)]
+   [:p "Username " (:username user)]
+   [:p "Email " (:email user)]
+   [:p "Personal Website " (:personalWebsite user)]
+   [:h3 "Chords"]
+   [:ul.list-group
+    ; list all user chords being able to edit or delete any of them
+    (for [chords (db/get-chords user)] 
+      (let [chords-id (:id chords)]
+        [:li.list-group-item 
+         [:a {:href (get-chords-url chords-id)} (:name chords)]]))]])
+
 (defn profile-page [user]
-  (list
-    [:div.container
-     [:h1 (:displayName user)]
-     [:h3 "Chords"]
-     [:ul.list-group
-      ; list all user chords being able to edit or delete any of them
-      (for [chords (db/get-chords user)] 
-        (let [chords-id (:id chords)]
-          [:li.list-group-item 
-           [:a {:href (str "chords/" chords-id "/get")} (:name chords)] " "
-           [:a {:href (str "chords/" chords-id "/edit")} [:i.fa.fa-edit.fa-lg.text-primary]] " "
-           [:a {:href (str "chords/" chords-id "/delete")} [:i.fa.fa-remove.fa-lg.text-danger]]]))]
-     [:a.btn.btn-success.pull-right  {:href "chords/create"} [:i.fa.fa-remove.fa-plus]]]))
+  [:div.container
+   [:h1 (:displayName user)]
+   [:h3 "Chords"]
+   [:ul.list-group
+    ; list all user chords being able to edit or delete any of them
+    (for [chords (db/get-chords user)] 
+      (let [chords-id (:id chords)]
+        [:li.list-group-item 
+         [:a {:href (get-chords-url chords-id)} (:name chords)] " "
+         [:a {:href (str "chords/" chords-id "/edit")} [:i.fa.fa-edit.fa-lg.text-primary]] " "
+         [:a {:href (str "chords/" chords-id "/delete")} [:i.fa.fa-remove.fa-lg.text-danger]]]))]
+   [:a.btn.btn-success.pull-right  {:href "chords/create"} [:i.fa.fa-remove.fa-plus]]])
 
 (defn home-page []
   (list 

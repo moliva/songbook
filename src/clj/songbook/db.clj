@@ -24,3 +24,7 @@
 (defn delete-user [username]
   (mongo/with-mongo conn
     (mongo/destroy! :users {:username username})))
+
+(defn delete-chords [username chords-id] 
+  ; TODO - delete chords from chords collection and reference from users
+  )

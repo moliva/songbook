@@ -31,6 +31,10 @@
   (db/delete-user username)
   (redirect "/users"))
 
+(defn handle-delete-chords [username chords-id]
+  (db/delete-chords username chords-id)
+  (redirect "/profile"))
+
 (defn get-user [session]
   (if-some [username (:username session)] (db/get-user username)))
 
@@ -44,12 +48,12 @@
   (context "/chords/:chords-id" [chords-id]
            (GET "/" [] nil)
            (GET "/edit" [] nil)
-           (GET "/delete" [] nil))
+           (GET "/delete" {session :session} (handle-delete-chords (:username session) chords-id)))
   (GET "/users" {session :session} (pages/application session pages/title (pages/users-page (get-user session))))
   (POST "/users/create" {params :params} (handle-create-user params))
   (GET "/users/create" {session :session} (pages/application session pages/title (pages/users-create-page)))
   (context "/users/:username" [username]
-           (GET "/" [] nil)
+           (GET "/" {session :session} (pages/application session pages/title (pages/user-page (db/get-user username))))
            (GET "/edit" [] nil)
            (GET "/delete" [] (handle-delete-user username)))
   (resources "/")
