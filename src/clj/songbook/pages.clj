@@ -53,6 +53,20 @@
     (include-js "/js/vendor.min.js")  
     (include-js "/js/approot.js")))
 
+(defn users-page [current-user]
+  (list
+    [:div.container
+     [:h3 "Users"]
+     [:ul.list-group
+      ; list all user chords being able to edit or delete any of them
+      (for [user (db/get-users)] 
+        (let [username (:username user)]
+          [:li.list-group-item 
+           [:a {:href (str "/users/" username)} (:displayName user)] " " [:em "(" username ")"] " "
+           [:a {:href (str "/users/" username "/edit")} [:i.fa.fa-edit.fa-lg.text-primary]] " "
+           [:a {:href (str "/users/" username "/delete")} [:i.fa.fa-remove.fa-lg.text-danger]]]))]
+     [:a.btn.btn-success.pull-right  {:href "/users/create"} [:i.fa.fa-remove.fa-plus]]]))
+
 (defn profile-page [user]
   (list
     [:div.container

@@ -13,3 +13,6 @@
 (defn get-chords [user]
   (mongo/with-mongo conn
     (mongo/fetch :chords :where {:_id {:$in (:chords user)}})))
+
+(defn get-users []
+  (mongo/with-mongo conn (mongo/fetch :users)))
