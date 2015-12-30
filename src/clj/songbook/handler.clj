@@ -35,6 +35,7 @@
            (GET "/edit" [] nil)
            (GET "/delete" [] nil))
   (GET "/users" {session :session} (pages/application session pages/title (pages/users-page (get-user session))))
+  (GET "/users/create" {session :session} (pages/application session pages/title (pages/users-create-page)))
   (context "/users/:user-id" [user-id])
            (GET "/" [] nil)
            (GET "/edit" [] nil)

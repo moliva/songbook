@@ -53,6 +53,27 @@
     (include-js "/js/vendor.min.js")  
     (include-js "/js/approot.js")))
 
+(defn users-create-page []
+  [:div.container
+   [:h3 "New User"]
+   [:div.panel.panel-default
+    [:div.panel-body
+     [:form.form-horizontal {:action "/" :method "post"}
+      [:input {:type "hidden" :name "__anti-forgery-token" :value anti-forgery/*anti-forgery-token*}]
+      [:div.form-group
+       [:label.col-sm-2.control-label {:for "username"} "Username"]
+       [:div.col-sm-10 [:input.form-control  {:type "text" :name "username" :placeholder "Username"}]]]
+      [:div.form-group
+       [:label.col-sm-2.control-label {:for "displayName"} "Display Name"]
+       [:div.col-sm-10 [:input.form-control  {:type "text" :name "displayName" :placeholder "Display Name"}]]]
+      [:div.form-group
+       [:label.col-sm-2.control-label {:for "password"} "Password"]
+       [:div.col-sm-10 [:input.form-control  {:type "password" :name "password" :placeholder "Password"}]]]
+      [:div.form-group
+       [:label.col-sm-2.control-label {:for "admin"} "Administrator"]
+       [:div.col-sm-10 [:input {:type "checkbox" :name "admin"}]]]
+      [:div.form-group [:div.col-sm-offset-2.col-sm-10 [:button.btn.btn-success {:type "submit"} "Create"]]]]]]])
+
 (defn users-page [current-user]
   (list
     [:div.container
