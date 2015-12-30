@@ -16,3 +16,11 @@
 
 (defn get-users []
   (mongo/with-mongo conn (mongo/fetch :users)))
+
+(defn create-user [user]
+  (mongo/with-mongo conn
+    (mongo/insert! :users user)))
+
+(defn delete-user [username]
+  (mongo/with-mongo conn
+    (mongo/destroy! :users {:username username})))

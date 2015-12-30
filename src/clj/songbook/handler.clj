@@ -20,6 +20,17 @@
              {:username username} 
              nil))))
 
+(defn handle-create-user [data]
+  (db/create-user 
+    (dissoc 
+      (assoc data :hashedPassword (sha-256 (:password data)) :chords [])
+      :__anti-forgery-token :password))
+  (redirect "/users"))
+
+(defn handle-delete-user [username]
+  (db/delete-user username)
+  (redirect "/users"))
+
 (defn get-user [session]
   (if-some [username (:username session)] (db/get-user username)))
 
@@ -35,11 +46,12 @@
            (GET "/edit" [] nil)
            (GET "/delete" [] nil))
   (GET "/users" {session :session} (pages/application session pages/title (pages/users-page (get-user session))))
+  (POST "/users/create" {params :params} (handle-create-user params))
   (GET "/users/create" {session :session} (pages/application session pages/title (pages/users-create-page)))
-  (context "/users/:user-id" [user-id])
+  (context "/users/:username" [username]
            (GET "/" [] nil)
            (GET "/edit" [] nil)
-           ;(GET "/delete" [] nil) 
+           (GET "/delete" [] (handle-delete-user username)))
   (resources "/")
   (not-found (pages/application nil "Not found" (pages/not-found-page))))
 
