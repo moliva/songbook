@@ -20,9 +20,11 @@
     [:div#main-navbar.collapse.navbar-collapse 
      ; navbar site main content
      [:ul.nav.navbar-nav.navbar-right
-      [:li (if (nil? user)
-             [:a {:href "/login"} "Login"]
-             [:a {:href "/profile"} (:displayName user)])]]]]])
+      (if (nil? user) 
+        [:li [:a {:href "/login"} "Login"]]
+        (list
+          (if (:admin user) [:li [:a {:href "/users"} "Users"]])
+          [:li [:a {:href "/profile"} (:displayName user)]]))]]]])
 
 (defn application [session title & contents]
   (html5

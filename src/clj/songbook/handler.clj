@@ -31,9 +31,13 @@
   (GET "/chords" [] nil)
   (GET "/chords/create" {session :session} (pages/application session pages/title (pages/chords-creation-page (get-user session))))
   (context "/chords/:chords-id" [chords-id]
-           (GET "/get" [] nil)
+           (GET "/" [] nil)
            (GET "/edit" [] nil)
            (GET "/delete" [] nil))
+  (context "/users/:user-id" [user-id])
+           (GET "/" [] nil)
+           (GET "/edit" [] nil)
+           ;(GET "/delete" [] nil) 
   (resources "/")
   (not-found (pages/application nil "Not found" (pages/not-found-page))))
 
