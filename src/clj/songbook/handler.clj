@@ -1,5 +1,5 @@
 (ns songbook.handler
-  (:require [compojure.core :refer [GET POST defroutes context]]
+  (:require [compojure.core :refer [GET POST DELETE defroutes context]]
             [compojure.route :refer [not-found resources]]
             [ring.middleware.defaults :refer [site-defaults wrap-defaults]]
             [ring.middleware.reload :refer [wrap-reload]]
@@ -41,21 +41,26 @@
 (defroutes routes
   (GET "/" {session :session} (pages/application session pages/title (pages/home-page)))
   (GET "/login" {session :session} (pages/application session pages/title (pages/login-page)))
+  (POST "/login" {params :params} (handle-login (:username params) (:password params)))
   (GET "/profile" {session :session} (pages/application session pages/title (pages/profile-page (get-user session))))
-  (POST "/try-login" {params :params} (handle-login (:username params) (:password params)))
-  (GET "/chords" [] nil)
-  (GET "/chords/create" {session :session} (pages/application session pages/title (pages/chords-creation-page (get-user session))))
-  (context "/chords/:chords-id" [chords-id]
+  (context "/chords" []
            (GET "/" [] nil)
-           (GET "/edit" [] nil)
-           (GET "/delete" {session :session} (handle-delete-chords (:username session) chords-id)))
-  (GET "/users" {session :session} (pages/application session pages/title (pages/users-page (get-user session))))
-  (POST "/users/create" {params :params} (handle-create-user params))
-  (GET "/users/create" {session :session} (pages/application session pages/title (pages/users-create-page)))
-  (context "/users/:username" [username]
-           (GET "/" {session :session} (pages/application session pages/title (pages/user-page (db/get-user username))))
-           (GET "/edit" [] nil)
-           (GET "/delete" [] (handle-delete-user username)))
+           (GET "/create" {session :session} (pages/application session pages/title (pages/chords-creation-page (get-user session))))
+           (context "/:chords-id" [chords-id]
+                    (GET "/" [] nil)
+                    (GET "/edit" [] nil)
+                    (GET "/delete" {session :session} (handle-delete-chords (:username session) chords-id))))
+  (context "/users" []
+           (POST "/" {params :params} (handle-create-user params))
+           (context "/:username" [username]
+                    (DELETE "/" [] (handle-delete-user username))))
+  (context "/users" []
+           (GET "/" {session :session} (pages/application session pages/title (pages/users-page (get-user session))))
+           (GET "/create" {session :session} (pages/application session pages/title (pages/users-create-page)))
+           (context "/:username" [username]
+                    (GET "/" {session :session} (pages/application session pages/title (pages/user-page (db/get-user username))))
+                    (GET "/edit" [] nil)
+                    (GET "/delete" [] (handle-delete-user username))))
   (resources "/")
   (not-found (pages/application nil "Not found" (pages/not-found-page))))
 
