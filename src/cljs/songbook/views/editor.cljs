@@ -236,6 +236,10 @@
 
 (defn print-controls []
   [:div.pull-right
+   [:a.btn.btn-success
+    {:style {:margin "0 2px"}
+     :href "#save"}
+    "Save"]
    [:a.btn.btn-primary
     {:type "button"
      :style {:margin "0 2px"}

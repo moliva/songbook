@@ -38,11 +38,17 @@
 (defn get-user [session]
   (if-some [username (:username session)] (db/get-user username)))
 
+(defn handle-create-chords [params]
+  ; TODO - implement create chords
+  )
+
 (defroutes routes
   (GET "/" {session :session} (pages/application session pages/title (pages/home-page)))
   (GET "/login" {session :session} (pages/application session pages/title (pages/login-page)))
   (POST "/login" {params :params} (handle-login (:username params) (:password params)))
   (GET "/profile" {session :session} (pages/application session pages/title (pages/profile-page (get-user session))))
+  (context "/chords" []
+           (POST "/" {params :params} (handle-create-chords params)))
   (context "/chords" []
            (GET "/" [] nil)
            (GET "/create" {session :session} (pages/application session pages/title (pages/chords-creation-page (get-user session))))
